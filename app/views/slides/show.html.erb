@@ -18,12 +18,50 @@
 </div>
 <% content_for :after_js do %>
   <script>
+    let height = document.querySelector('.comments').offsetHeight
+    let num=new Array();
+    let temp = 0;
+    for(var i = 0; i < height / 20 - 1; i++){
+      num.splice(i,0,i);
+    }
     App['slide_<%= @slide.id %>'] = App.cable.subscriptions.create(
       { channel: 'SlidesChannel', slide_id: <%= @slide.id %> },
       { received: (data) => {
+
         const commentContainer = document.querySelector('.comments');
-        commentContainer.insertAdjacentHTML('beforeend', data.comment_partial);
+        temp = Math.round(Math.random()*(num.length-1));
+        commentContainer.insertAdjacentHTML('afterbegin', data.comment_partial);
+        document.querySelector('.comment-content').style.marginTop=num[temp]*20+"px";
       }
     })
+
+    window.onload = function(){//加载页面发生的事件
+
+      // clearInterval(timer);//清除定时器
+      // for(var i = 0;i<10;i++){
+      //   setTimeout(function(){
+      //     var word=words[random(0,words.length-1)];//随机产生一个弹幕的内容
+      //     create(word);//创建一个弹幕
+      //   },100*random(10,100))//给弹幕随机加一个延迟
+
+      // }
+      timer=setInterval(move,100);//开启定时器
+    }
+
+    function move(){
+      parentNode = document.querySelector('.comments')
+      nodeList = document.querySelectorAll('.comment-content')
+      for (let i = 0; i < nodeList.length; i++){
+        distance = nodeList[i].offsetLeft + 1
+        nodeList[i].style.marginLeft = distance + "px"
+        if (distance > 950)
+          parentNode.removeChild(nodeList[i])
+      }
+
+    }
+    function random(m,n){//随机在m、n之间的整数
+      return Math.round(Math.random()*(n - m)) + m;
+    }
+
   </script>
 <% end %>
