@@ -11,4 +11,7 @@ class CommentPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  private
+
 end

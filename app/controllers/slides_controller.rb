@@ -6,10 +6,24 @@ class SlidesController < ApplicationController
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
   end
-
+  def new
+    @slide = Slide.new
+  end
+  def create
+    @slide = Slide.new(set_params)
+    if @slide.save
+      redirect_to @slide
+    else
+      render new
+    end
+  end
   private
   def set_slide
     @slide = Slide.find(params[:id])
     authorize @slide
+  end
+
+  def set_params
+    params.require(:slide).permit(:iframe, :user_id)
   end
 end
