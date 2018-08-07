@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="comments">
+        <% @slide.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @slide, Comment.new ], remote: true do |f| %>
+          <%= f.input :content, label: false  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :after_js do %>
+  <script>
+    App['slide_<%= @slide.id %>'] = App.cable.subscriptions.create(
+      { channel: 'SlidesChannel', slide_id: <%= @slide.id %> },
+      { received: (data) => {
+        const commentContainer = document.querySelector('.comments');
+        commentContainer.insertAdjacentHTML('beforeend', data.comment_partial);
+      }
+    })
+  </script>
+<% end %>
