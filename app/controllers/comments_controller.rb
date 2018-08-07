@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       ActionCable.server.broadcast("slide_#{@slide.id}", {
-        comment_partial: (@comment.content) }
+        comment: (@comment.content), color: (@comment.color) }
       )
     end
   end
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :color)
   end
 
   def set_comment

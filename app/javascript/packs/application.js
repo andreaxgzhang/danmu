@@ -1,3 +1,3 @@
 import "bootstrap";
-// import { scrollLastMessageIntoView } from '../functions/scroll';
-// scrollLastMessageIntoView();
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();

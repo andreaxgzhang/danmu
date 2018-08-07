@@ -8,15 +8,18 @@ class SlidesController < ApplicationController
   end
   def new
     @slide = Slide.new
+    authorize @slide
   end
   def create
     @slide = Slide.new(set_params)
+    @slide.user = current_user
     if @slide.save
       redirect_to @slide
     else
       render new
     end
   end
+
   private
   def set_slide
     @slide = Slide.find(params[:id])
