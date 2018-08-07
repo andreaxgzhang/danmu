@@ -6,7 +6,10 @@ class SlidesController < ApplicationController
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
   end
-
+  def dashboard
+    @slides = Slide.all
+    authorize @slides
+  end
   private
   def set_slide
     @slide = Slide.find(params[:id])
