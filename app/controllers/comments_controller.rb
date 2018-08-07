@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
   def index
-    @comments = Comment.all
+    @comments = policy_scope(Comment).order(created_at: :desc)
+    @slide = Slide.includes(comments: :user).find(params[:slide_id])
   end
   def create
     @comment = Comment.new(comment_params)
@@ -10,7 +12,6 @@ class CommentsController < ApplicationController
     authorize(@comment)
 
     if @comment.save
-
       ActionCable.server.broadcast("slide_#{@slide.id}", {
         comment_partial: (render @comment) }
       )
@@ -21,5 +22,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+    authorize @comment
   end
 end

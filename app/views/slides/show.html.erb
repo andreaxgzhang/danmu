@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
+
+      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTSSREjcK0-vYrZB9lrb9QQF1p9lvTf9cIdwh9NngYeUuAErHvpYX8Xwe3sYF0r-h6CXgv96gMevNtt/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
       <div class="comments">
         <% @slide.comments.each do |comment| %>
           <%= render "comments/comment", comment: comment %>
         <% end %>
       </div>
-      <div id="create-message">
+<!--       <div id="create-message">
         <%= simple_form_for [ @slide, Comment.new ], remote: true do |f| %>
           <%= f.input :content, label: false  %>
         <% end %>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

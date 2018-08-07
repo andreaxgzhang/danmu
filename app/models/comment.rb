@@ -5,13 +5,13 @@ class Comment < ApplicationRecord
   def from?(some_user)
     user == some_user
   end
-  def broadcast_message
-    ActionCable.server.broadcast("slide_#{slide.id}", {
-      comment_partial: ApplicationController.renderer.render(
-        partial: "comments/comment",
-        locals: { comment: self, user_is_messages_author: false }
-      ),
-      current_user_id: user.id
-    })
-  end
+  # def broadcast_comment(slide)
+  #  ActionCable.server.broadcast("skude_#{chat_room.id}", {
+  #     message_partial: ApplicationController.renderer.render(
+  #       partial: "messages/message",
+  #       locals: { message: self, user_is_messages_author: false }
+  #     ),
+  #     current_user_id: user.id
+  #   })
+  # end
 end
