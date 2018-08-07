@@ -19,6 +19,19 @@ class SlidesController < ApplicationController
       render new
     end
   end
+  def edit
+    @slide = Slide.find(params[:id])
+  end
+  def update
+    @slide = Slide.find(params[:id])
+    @slide.update(set_params)
+    redirect_to slides_path
+  end
+  def destroy
+    @slide = Slide.find(params[:id])
+    @slide.destroy
+    redirect_to slides_path
+  end
 
   private
   def set_slide
