@@ -8,15 +8,40 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #E2647D;
 }
 
+.navbar-landing {
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+}
+.navbar-landing-white {
+  background-color: white;
+
+}
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 64px;
+  border-radius: 50%;
+}
+.navbar-landing-brand img {
+  height: 64px;
+  border-radius: 50%;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.navbar-landing .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -28,17 +53,37 @@
   align-items: center;
   justify-content: space-between;
 }
+.navbar-landing-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-fixed-top.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
 }
-
+.navbar-landing-item {
+  cursor: pointer;
+  padding: 0 20px;
+}
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: black !important;
   font-size: 14px;
+}
+.navbar-landing-link {
+  color: black;
+  font-size: 14px;
+}
+.navbar-landing-link:hover {
+  color: black;
+  text-decoration: none;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -54,7 +99,7 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: #777777 !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;

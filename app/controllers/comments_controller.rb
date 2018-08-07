@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   def index
-    @comments = policy_scope(Comment).order(created_at: :desc)
+    @comments = policy_scope(Comment).order(created_at: :ASC)
     @slide = Slide.includes(comments: :user).find(params[:slide_id])
   end
   def create
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       ActionCable.server.broadcast("slide_#{@slide.id}", {
-        comment_partial: (render @comment) }
+        comment: (@comment.content), color: (@comment.color) }
       )
     end
   end
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :color)
   end
 
   def set_comment
