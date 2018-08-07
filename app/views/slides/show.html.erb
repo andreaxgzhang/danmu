@@ -35,6 +35,8 @@
         // commentContainer.insertAdjacentHTML('afterbegin', data.comment_partial);
         node.style.marginTop = num[temp]*20 + "px";
         node.style.position = "absolute";
+        console.log(111, data.color)
+        node.style.color = data.color;
         commentContainer.appendChild(node);
       }
     })
@@ -49,6 +51,9 @@
       document.querySelector('.comments').style.width = document.querySelector('iframe').offsetWidth + "px";
       let height = document.querySelector('.comments').offsetHeight;
       let width = document.querySelector('.comments').offsetWidth;
+      for(var i = 0; i < height / 20 - 1; i++){
+        num.splice(i,0,i);
+      }
     });
     function move(){
       let nodeList = document.querySelectorAll('.comment-relative');

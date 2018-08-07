@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_083044) do
+ActiveRecord::Schema.define(version: 2018_08_07_102422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
-    t.boolean "is_sensored"
+    t.boolean "is_sensored", default: false
     t.boolean "is_handled"
     t.boolean "is_viewed"
     t.bigint "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_083044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "color"
+    t.boolean "approved", default: false
     t.index ["slide_id"], name: "index_comments_on_slide_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

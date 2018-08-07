@@ -1,13 +1,18 @@
 <div id="create-message">
   <%= simple_form_for [ @slide, Comment.new ], remote: true do |f| %>
     <%= f.input :content, label: false  %>
-    <%= f.input :color, :collection => %w[red blue green yellow pink red white black] %>
+    <%= f.input :color, :collection => %w[white black yellow orange pink red purple blue green olive maroon] %>
+    <%= f.submit "Add a new comment" %>
   <% end %>
 </div>
 <div class="comments-show">
   <% @comments.each do |comment| %>
-    <%= comment.content %>
-   <br>
+    <% if comment.approved == false %>
+      <%= comment.content %>
+      <%= button_to "Approve",  slide_comment_path(@slide, comment), params: { approved: true }, method: :put %>
+      <%= button_to "Reject", slide_comment_path(@slide, comment), method: :delete %>
+     <br>
+    <% end %>
   <% end %>
 </div>
 
