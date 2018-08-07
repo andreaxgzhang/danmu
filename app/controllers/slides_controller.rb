@@ -6,6 +6,11 @@ class SlidesController < ApplicationController
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
   end
+  def dashboard
+    @slides = Slide.all
+    authorize @slides
+  end
+
   def new
     @slide = Slide.new
     authorize @slide
@@ -18,6 +23,19 @@ class SlidesController < ApplicationController
     else
       render new
     end
+  end
+  def edit
+    @slide = Slide.find(params[:id])
+  end
+  def update
+    @slide = Slide.find(params[:id])
+    @slide.update(set_params)
+    redirect_to slides_path
+  end
+  def destroy
+    @slide = Slide.find(params[:id])
+    @slide.destroy
+    redirect_to slides_path
   end
 
   private
