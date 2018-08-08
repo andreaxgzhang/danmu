@@ -20,9 +20,12 @@ class CommentsController < ApplicationController
 
     authorize @comment
     if @comment.save
-        respond_to do |format|
-          format.js
-        end
+      ActionCable.server.broadcast("slide_#{@slide.id}_comments", {
+         filter: render(partial: "comments/comment_filter", locals: { comment: @comment, slide: @slide})
+       })
+      respond_to do |format|
+        format.js
+      end
     else
       respond_to do |format|
         format.html { render 'comments/show' }

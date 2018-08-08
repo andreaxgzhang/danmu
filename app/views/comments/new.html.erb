@@ -1,8 +1,3 @@
 <div id="create-message" class="create-message">
   <%= render 'comments/form', slide: @slide, comment: Comment.new %>
 </div>
-<div class="comments-show">
-  <% @comments.each do |comment| %>
-    <%= render 'comments/show', comment: comment, slide: @slide %>
-  <% end %>
-</div>
