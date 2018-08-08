@@ -2,7 +2,7 @@
   <%= simple_form_for [@slide, @comment], remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "leave your comment", required: true, error: 'Please enter your comment', autofocus: true %>
     <%= f.input :color, label: false, placeholder: "choose a color", collection: %w[red blue green yellow pink red white black], selected: "black", class: "form-control" %>
-    <%= f.button :submit, "Shoot danmu" %>
+    <%= f.button :submit, "Shoot danmu", class: "submit-btn" %>
   <% end %>
   <% if @comment.errors.any? %>
     <div class="errors-container">
