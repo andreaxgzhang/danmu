@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @slide = Slide.includes(comments: :user).find(params[:slide_id])
   end
   def new
+    @comments = Comment.all.select { |comment| comment.approved == true }
     @slide = Slide.find(params[:slide_id])
     @comment = Comment.new
     authorize @comment
@@ -20,13 +21,12 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.save
         respond_to do |format|
-          format.js  # <-- will render `app/views/reviews/create.js.erb`
+          format.js
         end
-
     else
       respond_to do |format|
         format.html { render 'comments/show' }
-        format.js  # <-- idem
+        format.js
       end
     end
 
