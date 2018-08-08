@@ -1,4 +1,4 @@
-<div class="container">
+<%= raw @qr.as_html %><div class="container">
   <div class="row">
     <div class="col-sm-6">
       <%= @slide.iframe.html_safe %>
@@ -14,7 +14,7 @@
     let height = document.querySelector('.comments').offsetHeight
     let width = document.querySelector('.comments').offsetWidth
     // let width = document.querySelector('.comments').offsetHeight
-    let num=new Array();
+    let num = new Array();
     let temp = 0;
 
     for(var i = 0; i < height / 20 - 1; i++){

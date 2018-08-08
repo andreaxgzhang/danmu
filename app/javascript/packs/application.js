@@ -7,3 +7,4 @@ import "bootstrap";
 // dashboard();
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
+

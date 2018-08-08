@@ -1,11 +1,16 @@
 class SlidesController < ApplicationController
+
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
   def index
     @slides = policy_scope(Slide).order(created_at: :desc)
   end
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
-    # @qr = RQRCode::QRCode.new("")
+    @qr = RQRCode::QRCode.new("http://localhost:3000/slides/#{@slide.id}/comments/new")
+    @svg = @qr.as_svg(offset: 0, color: '000',
+                    shape_rendering: 'crispEdges',
+                    module_size: 11)
+
   end
   def dashboard
     @slides = Slide.all
