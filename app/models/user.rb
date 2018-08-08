@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments, dependent: :destroy
   has_many :slides, dependent: :destroy
+  validates :email, presence: true, uniqueness: true, format: { with: /\A.*@.*\.com\z/ }
 end

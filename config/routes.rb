@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'slides#dashboard', as: :dashboard
 
   devise_for :users
+
   resources :slides do
     resources :comments, only: [ :index, :create, :update, :destroy]
+
   end
   resources :qr_codes, only: [:new, :create]
 
