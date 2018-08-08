@@ -2,6 +2,7 @@
   <%= simple_form_for [ @slide, Comment.new ], remote: true do |f| %>
     <%= f.input :content, label: false  %>
     <%= f.input :color, :collection => %w[red blue green yellow pink red white black] %>
+    <%= f.button :submit %>
   <% end %>
 </div>
 <div class="comments-show">
@@ -27,3 +28,4 @@
     })
   </script>
 <% end %>
+<h1>Hello</h1>
