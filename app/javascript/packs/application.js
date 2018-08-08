@@ -4,4 +4,5 @@ import "bootstrap";
 
 
 // import { dashboard } from '../functions/dashboard';
-// dashboard();
+
+import { login } from './login';
