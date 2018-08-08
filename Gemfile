@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "pundit"
+gem 'rqrcode-with-patches'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,10 +1,21 @@
-<div id="create-message">
-  <%= simple_form_for [ @slide, Comment.new ], remote: true do |f| %>
-    <%= f.input :content, label: false  %>
+<!-- <div id="create-message">
+  <%= render 'comments/form', slide: @slide, comment: Comment.new %>
+</div> -->
+<div class="comments-show">
+  <% @comments.each do |comment| %>
+    <% if comment.approved == false %>
+      <%= render 'comments/comment_filter', comment: comment, slide: @slide %>
+    <% end %>
   <% end %>
 </div>
-<% @comments.each do |comment| %>
-<%= comment.content %>
-<br>
+<% content_for :after_js do %>
+<script>
+  App['slide_<%= @slide.id %>_comments'] = App.cable.subscriptions.create(
+      { channel: 'CommentsChannel', slide_id: <%= @slide.id %> },
+      { received: (data) => {
+          const commentsContainer = document.querySelector('.comments-show');
+          commentsContainer.insertAdjacentHTML('beforeend', data.filter);
+        }
+      })
+</script>
 <% end %>
-

@@ -4,5 +4,7 @@ import "bootstrap";
 
 
 // import { dashboard } from '../functions/dashboard';
+// dashboard();
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();
 
-import { login } from './login';
