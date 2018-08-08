@@ -5,7 +5,13 @@ class SlidesController < ApplicationController
   end
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
+    # @qr = RQRCode::QRCode.new("")
   end
+  def dashboard
+    @slides = Slide.all
+    authorize @slides
+  end
+
   def new
     @slide = Slide.new
     authorize @slide
