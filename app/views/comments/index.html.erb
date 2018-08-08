@@ -8,3 +8,14 @@
     <% end %>
   <% end %>
 </div>
+<% content_for :after_js do %>
+<script>
+  App['slide_<%= @slide.id %>_comments'] = App.cable.subscriptions.create(
+      { channel: 'CommentsChannel', slide_id: <%= @slide.id %> },
+      { received: (data) => {
+          const commentsContainer = document.querySelector('.comments-show');
+          commentsContainer.insertAdjacentHTML('beforeend', data.filter);
+        }
+      })
+</script>
+<% end %>
