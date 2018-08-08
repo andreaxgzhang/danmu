@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
   resources :slides do
     resources :comments, only: [ :index, :create, :update, :destroy, :new]
+
 
   end
   resources :qr_codes, only: [:new, :create]
