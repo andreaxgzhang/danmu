@@ -1,4 +1,5 @@
 class SlidesController < ApplicationController
+
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
   def index
     @slides = policy_scope(Slide).order(created_at: :desc)
