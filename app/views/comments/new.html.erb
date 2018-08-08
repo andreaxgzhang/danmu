@@ -1,3 +1,17 @@
 <div id="create-message" class="create-message">
   <%= render 'comments/form', slide: @slide, comment: Comment.new %>
 </div>
+<script>
+
+const form = document.getElementById('new_comment')
+form.addEventListener('submit', function(event){
+  // const newCommentForm = document.getElementById('create-message');
+  // newCommentForm.innerHTML = '<%#= j render "comments/form", slide: @slide, comment: Comment.new %>';
+  setTimeout(() => {
+    const commentInput = document.getElementById('comment_content')
+    commentInput.value = ''
+    document.querySelector('select').selectedIndex = 7
+  }, 0)
+});
+</script>
+
