@@ -7,19 +7,26 @@ class CommentsController < ApplicationController
     @slide = Slide.includes(comments: :user).find(params[:slide_id])
   end
   def create
-    p "hhhhhhhh"
-    p comment_params
     @comment = Comment.new(comment_params)
     @slide = Slide.find(params[:slide_id])
     @comment.slide = @slide
     @comment.user = current_user
-    authorize(@comment)
+    authorize @comment
     if @comment.save
-      p 'aaa'
+        respond_to do |format|
+          format.html { redirect_to restaurant_path(@restaurant) }
+          format.js  # <-- will render `app/views/reviews/create.js.erb`
+        end
+    else
+      respond_to do |format|
+        format.html { render 'comments/show' }
+        format.js  # <-- idem
+      end
     end
+
     # if @comment.save
     #   ActionCable.server.broadcast("slide_#{@slide.id}", {
-    #     comment: (@comment.content), color: (colors[@comment.color]) }
+    #     comment: (@comment.content) }
     #   )
     # end
   end
@@ -33,14 +40,18 @@ class CommentsController < ApplicationController
         comment: (@comment.content), color: (colors[@comment.color]) }
       )
       # @comment.destroy
-      redirect_to slide_comments_path(@slide)
+      respond_to do |format|
+        format.js
+      end
     end
 
   end
 
   def destroy
     @comment.destroy
-    redirect_to slide_comments_path(@slide)
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
