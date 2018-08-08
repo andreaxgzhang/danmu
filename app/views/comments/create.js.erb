@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('create-message');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addComment(commentHTML) {
+  const comments = document.querySelector('.comments-show');
+  comments.insertAdjacentHTML('beforeend', commentHTML);
+}
+
+<% if @comment.errors.any? %>
+  refreshForm('<%= j render "comments/form", slide: @slide, comment: Comment.new %>');
+<% else %>
+  addComment('<%= j render "comments/show", comment: @comment, slide: @slide %>');
+  refreshForm('<%= j render "comments/form", slide: @slide, comment: Comment.new %>');
+<% end %>

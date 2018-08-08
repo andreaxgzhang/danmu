@@ -1,4 +1,4 @@
-class CommentPolicy < ApplicationPolicy
+class QrCodesPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -11,12 +11,9 @@ class CommentPolicy < ApplicationPolicy
   def show?
     return true
   end
-  def update?
-    return true
-  end
-  def destroy?
-    return true
-  end
 
+  def new?
+    return true
+  end
 
 end
