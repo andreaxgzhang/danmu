@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :slides do
-    resources :comments, only: [ :index, :create]
+  resources :slides, shallow: true do
+    resources :comments, only: [ :index, :new, :create]
   end
 
   root to: 'pages#home'

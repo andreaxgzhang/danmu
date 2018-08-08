@@ -1,0 +1,33 @@
+<div id="create-message" class="create-message">
+  <%= simple_form_for [@slide, @comment], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "leave your comment", required: true, error: 'Please enter your comment', autofocus: true %>
+    <%= f.input :color, label: false, placeholder: "choose a color", collection: %w[red blue green yellow pink red white black], selected: "black", class: "form-control" %>
+    <%= f.button :submit, "Shoot danmu" %>
+  <% end %>
+  <% if @comment.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<% content_for :after_js do %>
+  <script>
+    App['slide_<%= @slide.id %>'] = App.cable.subscriptions.create(
+      { channel: 'SlidesChannel', slide_id: <%= @slide.id %> },
+      { received: (data) => {
+
+        const commentContainer = document.querySelector('.comments-show');
+        let node = document.createElement("div");
+        node.innerHTML = data.comment_partial;
+        // commentContainer.insertAdjacentHTML('afterbegin', data.comment_partial);
+        // node.style.position = "absolute";
+        commentContainer.appendChild(node);
+      }
+    })
+  </script>
+<% end %>
