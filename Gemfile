@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "pundit"
 gem 'rqrcode-with-patches'
+gem 'language_filter'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
