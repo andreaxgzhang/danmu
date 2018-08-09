@@ -1,7 +1,77 @@
+<style type="text/css">
+  body {
+    background: #E994A5;
+    min-height: 100vh;
+    width: 100vw;
+  }
+  .comment-filter {
+    min-height: 10vh;
+    background-color: #F4F3EF;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .username {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .comment-message {
+    font-size: 14px;
+
+  }
+  .comment-filter {
+    margin-top: 4vh;
+    padding: 10px 30px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 1px 5px 10px 0 rgba(0,0,0,0.6);
+  }
+  .comment-box {
+
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .one-button {
+    color: white;
+    border: none;
+    min-width: 20vw;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    transition: all 200ms ease;
+  }
+  .one-button:hover {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+  }
+  .pink-button {
+    background-color: #E2647D;
+  }
+  .grey-button {
+    background-color: rgba(100,100,100,1);
+  }
+</style>
+<body>
+<div class="main-container">
 <div class="comment-filter" data-comment-id=<%= comment.id %>>
-  <p><%= User.find(comment.user_id)[:username] %></p>
-  <p><%= comment.content %></p>
-  <%= button_to "Approve",  slide_comment_path(slide, comment), params: { approved: true }, action: :update, method: :put, remote: :true %>
-  <%= button_to "Reject", slide_comment_path(slide, comment), method: :delete, action: :destroy, remote: :true %>
-  <br>
+
+    <div class="row">
+      <div class="col-xs-offset-1 col-lg-offset-0 col-xs-8 comment-box">
+        <div class="username">
+          <%= User.find(comment.user_id)[:username] %>
+        </div>
+        <div>
+          <p class="comment-message"><%= comment.content %></p>
+        </div>
+      </div>
+      <div class="col-xs-2" style="padding-left: 0;">
+        <div class="buttons">
+          <%= button_to "Accept", slide_comment_path(slide, comment), params: { approved: true }, action: :update, method: :put, remote: :true, class: "one-button pink-button" %>
+          <%= button_to "Reject ", slide_comment_path(slide, comment), method: :delete, action: :destroy, remote: :true, class: "one-button grey-button"%>
+        </div>
+      </div>
+    </div>
+
 </div>
+</div>
+</body>
