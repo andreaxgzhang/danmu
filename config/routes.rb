@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   get 'qr_codes/new'
   get 'qr_codes/create'
     get 'dashboard', to: 'slides#dashboard', as: :dashboard
 
   devise_for :users
 
-  mount ActionCable.server => "/cable"
+
 
   resources :slides do
     resources :comments, only: [ :index, :create, :update, :destroy, :new]
