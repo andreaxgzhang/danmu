@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :slides do
     resources :comments, only: [ :index, :create, :update, :destroy, :new]
 
+  mount ActionCable.server => "/cable"
 
   end
   resources :qr_codes, only: [:new, :create]
