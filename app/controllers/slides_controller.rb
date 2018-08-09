@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
   end
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
-    @qr = RQRCode::QRCode.new("http://localhost:3000/slides/#{@slide.id}/comments/new")
+    @qr = RQRCode::QRCode.new("https://danmu-on-slide.herokuapp.com/slides/#{@slide.id}/comments/new")
     @svg = @qr.as_svg(offset: 0, color: '000',
                     shape_rendering: 'crispEdges',
                     module_size: 11)

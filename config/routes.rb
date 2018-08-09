@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  mount ActionCable.server => "/cable"
 
   resources :slides do
     resources :comments, only: [ :index, :create, :update, :destroy, :new]
 
-  mount ActionCable.server => "/cable"
 
   end
   resources :qr_codes, only: [:new, :create]
