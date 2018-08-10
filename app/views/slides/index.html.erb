@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Paper Dashboard by Creative Tim</title>
+  <title>Dashboard</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -18,39 +18,25 @@
 
 <div class="wrapper">
   <div class="sidebar" data-active-color="danger">
-
-    <!--
-    Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-    Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-  -->
-
       <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
                     Danmu On Slides!
                 </a>
             </div>
-
             <ul class="nav">
                 <li>
                     <a href="dashboard.html">
-                        <i class="ti-panel"></i>
-                        <p>User Profile</p>
+                      <i class="ti-panel"></i>
+                      <p>User Profile</p>
                     </a>
                 </li>
                 <li class="active">
                     <a href="slides">
-                        <i class="ti-user"></i>
-                        <p>My Collection</p>
+                      <i class="ti-user"></i>
+                      <p>My Slides</p>
                     </a>
                 </li>
-                <li>
-                    <a href="table.html">
-                        <i class="ti-view-list-alt"></i>
-                        <p>Contact us</p>
-                    </a>
-                </li>
-
             </ul>
       </div>
     </div>
@@ -68,98 +54,28 @@
                     <a class="navbar-brand" href="#">My Collection</a>
                 </div>
                 <div class="collapse navbar-collapse">
-
-
                 </div>
             </div>
         </nav>
 
-
-
-
-
+      <% @slides.each do |slide| %>
+        <%= link_to  slide_path(slide) do %>
         <div class="product">
           <div class='product-upvote'>
             <div class="product-arrow"></div>
-            <div class='product-count'>95</div>
           </div>
-          <img src="http://lewagon.github.io/ui-components/images/kudoz.jpg" alt="kudoz" class="product-image hidden-xs">
-          <div class='product-body'>
-            <h3>Kudoz</h3>
-            <p>Best job offers on your phone</p>
+          <%= cl_image_tag slide.photo, height: 300, width: 400, crop: :fill %>
+            <h3><%= slide.name %></h3>
+            <p><%= slide.description %></p>
           </div>
-          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+<!--           <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
             <li><a href=""><i class="fa fa-heart"></i></a></li>
             <li><a href=""><i class="fa fa-share"></i></a></li>
             <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
+          </ul> -->
         </div>
-
-
-
-      <div class="product">
-            <div class="product-upvote">
-              <div class="product-arrow"></div>
-              <div class="product-count">67</div>
-            </div>
-            <img src="http://lewagon.github.io/html-css-challenges/12-profile-with-products/images/uslide.jpg" alt="" class="product-image">
-            <div class="product-body">
-              <h3>uSlide</h3>
-              <p>Youtube sucks for education</p>
-            </div>
-          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
-          </div>
-
-
-
-<div class="product">
-        <div class="product-upvote">
-          <div class="product-arrow"></div>
-          <div class="product-count">55</div>
-        </div>
-        <img src="http://lewagon.github.io/html-css-challenges/12-profile-with-products/images/roadstr.jpg" alt="" class="product-image">
-        <div class="product-body">
-          <h3>Roadstr</h3>
-          <p>Rent a vintage car</p>
-        </div>
-          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
-      </div>
-
-
-
-<div class="product">
-        <div class="product-upvote">
-          <div class="product-arrow"></div>
-          <div class="product-count">72</div>
-        </div>
-        <img src="https://images.pexels.com/photos/194357/pexels-photo-194357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" alt="" class="product-image">
-        <div class="product-body">
-          <h3>Camera</h3>
-          <p>Be a great photographer</p>
-        </div>
-          <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul>
-      </div>
-
-
-
-
-
-
-
-
-
+        <% end %>
+      <% end %>
     </div>
 </div>
 

@@ -19,6 +19,9 @@ gem 'webpacker'
 gem "pundit"
 gem 'rqrcode-with-patches'
 gem 'language_filter'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary'
+gem 'carrierwave'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

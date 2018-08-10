@@ -24,6 +24,7 @@ class SlidesController < ApplicationController
   def create
     @slide = Slide.new(set_params)
     @slide.user = current_user
+    authorize @slide
     if @slide.save
       redirect_to @slide
     else
@@ -51,6 +52,6 @@ class SlidesController < ApplicationController
   end
 
   def set_params
-    params.require(:slide).permit(:iframe, :user_id)
+    params.require(:slide).permit(:iframe, :user_id, :name, :description, :photo)
   end
 end
