@@ -31,7 +31,7 @@
     }
   }
   .main-container {
-    background-color: #5DA2D2;
+    background-color: transparent;
     min-height: 300px;
     max-width: 100%;
   }
@@ -52,6 +52,13 @@
     }
     .text-content-bd-two p {
       font-size: 12px;
+    }
+    .text-title-bd-two {
+      padding-top: 3vh;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
     }
   }
   @media screen and (max-width: 800px) {
@@ -228,7 +235,9 @@
     </div>
 
     <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
-      <div class="main-container"></div>
+      <div class="main-container">
+        <%= image_tag("landing-img-1", {:class => "main-container"}) %>
+      </div>
     </div>
   </div>
   <%= image_tag("pattern-grey", {:class => "pattern-grey"}) %>
@@ -236,7 +245,9 @@
 <div class="bd-two bd">
   <div class="row">
     <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
-      <div class="main-container"></div>
+      <div class="main-container">
+        <%= image_tag("landing-img-2", {:class => "main-container"}) %>
+      </div>
     </div>
     <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
       <div class="text-container">
@@ -265,7 +276,9 @@
       </div>
     </div>
     <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
-      <div class="main-container"></div>
+      <div class="main-container">
+        <%= image_tag("landing-img-3", {:class => "main-container"}) %>
+      </div>
     </div>
   </div>
 </div>
