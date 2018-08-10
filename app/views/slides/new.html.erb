@@ -1,5 +1,17 @@
+
+
+
 <%= simple_form_for(@slide) do |f| %>
+  <div class="login-container">
+    <h1>Link your slide</h1>
+      <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :iframe %>
+      </div>
+      <div class="loginbtn">
     <%= f.submit "Create a new slide" %>
+      </div>
+  </div> <!-- login-container -->
+
 <% end %>
+
