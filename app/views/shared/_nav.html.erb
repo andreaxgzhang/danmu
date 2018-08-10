@@ -1,9 +1,8 @@
 <div class="navbar-landing navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <h1 style="margin: 0; padding: 0; font-size: 32px; color: white">Danmu</h1>
   <% end %>
-  <h1 style="margin: 0; padding: 0; font-size: 32px; position: absolute; left: 108px; color: white">Danmu</h1>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -14,8 +13,13 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "logo.png", class: "avatar dropdown-toggle", style: "width: 58px; height: 58px",  id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i> <%= "Home" %>
+              <% end %>
+            </li>
             <li>
               <%= link_to slides_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -23,7 +27,7 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -39,9 +43,10 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg ">
     <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <%= image_tag "logo.png", class: "avatar dropdown-toggle", style: "width: 38px; height: 38px",  id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% if user_signed_in? %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li><%= link_to "Profile", slides_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li><%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
                   <%= t(".sign_out", default: "Log out") %>

@@ -20,22 +20,20 @@
   <div class="sidebar" data-active-color="danger">
       <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Danmu On Slides!
-                </a>
+
             </div>
             <ul class="nav">
                 <li>
                     <a href="dashboard.html">
                       <i class="ti-panel"></i>
-                      <p>User Profile</p>
-                    </a>
+                      <p>User Profile</p >
+                    </a >
                 </li>
                 <li class="active">
                     <a href="slides">
                       <i class="ti-user"></i>
-                      <p>My Slides</p>
-                    </a>
+                      <p>My Slides</p >
+                    </a >
                 </li>
             </ul>
       </div>
@@ -51,7 +49,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">My Collection</a>
+                    <a class="navbar-brand" href="#">My Slides</a >
                 </div>
                 <div class="collapse navbar-collapse">
                 </div>
@@ -64,21 +62,35 @@
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-          <%= cl_image_tag slide.photo, height: 300, width: 400, crop: :fill %>
-            <h3><%= slide.name %></h3>
-            <p><%= slide.description %></p>
+          <%= cl_image_tag slide.photo, height: 200, width: 350, crop: :fill;%>
+            <div class='product-body'>
+              <h3><%= slide.name %></h3>
+              <p><%= slide.description %></p >
+            </div>
           </div>
-<!--           <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a></li>
-            <li><a href=""><i class="fa fa-share"></i></a></li>
-            <li><a href=""><i class="fa fa-star"></i></a></li>
-          </ul> -->
-        </div>
         <% end %>
       <% end %>
-    </div>
-</div>
+<!--           <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a ></li>
+            <li><a href=""><i class="fa fa-share"></i></a ></li>
+            <li><a href=""><i class="fa fa-star"></i></a ></li>
+          </ul> -->
+        <%= link_to new_slide_path do %>
+          <div class="product">
+            <div class='product-upvote'>
+              <div class="product-arrow"></div>
+            </div>
+            <%= image_tag "add", height: 200, width: 350, crop: :fill;%>
+              <div class='product-body'>
+                <h3>+ Add A new Slide !</h3>
+              </div>
+            </div>
+        <% end %>
 
+        </div>
+
+      </div>
+    </div>
 
 </body>
 
