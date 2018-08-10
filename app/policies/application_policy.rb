@@ -34,6 +34,11 @@ class ApplicationPolicy
     false
   end
 
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(root_path)
+  end
+
   class Scope
     attr_reader :user, :scope
 
