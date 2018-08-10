@@ -9,7 +9,7 @@ class SlidesController < ApplicationController
     @qr = RQRCode::QRCode.new("https://danmu-on-slide.herokuapp.com/slides/#{@slide.id}/comments/new")
     @svg = @qr.as_svg(offset: 0, color: '000',
                     shape_rendering: 'crispEdges',
-                    module_size: 11)
+                    module_size: 2.5)
 
   end
   def dashboard

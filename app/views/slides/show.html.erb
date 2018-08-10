@@ -1,14 +1,120 @@
-<%= raw @qr.as_html %><div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <%= @slide.iframe.html_safe %>
-      <div class="comments">
-      </div>
-    </div>
-  </div>
-</div>
+<style>
+  p {
+    font-size: 12px;
+    line-height: 2;
+  }
+
+.cool-description {
+    padding-left: 200px;
+    max-width: 79%;
+}
+.cool-text {
+  font-size: 20px;
+  color:black;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+  .mini-text-container {
+    border-left: 1px solid orange;
+    padding: 14px;
+    margin: 8px auto;
+    color: gray;
+    font-weight: lighter;
+    min-width: 262px !important;
+  }
+
+.qrcode {
+  margin-left: 165px;
+}
+
+
+.big-container {
+    padding: 101px;
+    background-color: white;
+    margin: 60px;
+    box-shadow:20px 20px 50px rgba(10,10,10,0.5);
+}
+.cool-footer {
+  display: flex;
+  margin-top: 10vh;
+  margin-left: 2px;
+}
+.foot-text {
+  font-size: 10px;
+  font-weight: bolder;
+  border-bottom: 1px solid black;
+}
+</style>
+
+
+          <div class="big-container">
+            <div class="row">
+
+
+              <div class="col-md-6 col-xs-12">
+                <div class="slide-frame">
+                  <%= @slide.iframe.html_safe %>
+                </div>
+
+              </div>
+
+              <div class="col-md-5 col-xs-12">
+                <div class="cool-description">
+                  <div class="cool-text">
+                    <h1>Modern Minimal</h1>
+                    <div class="mini-text-container">
+                      <p>Young: It feels like it's a missed opportunity to not feature Leonard's return to San Antonio more prominently, and Lakers-Celtics with the new LeBron vs. Kyrie Irving twist on opening week would be quite tasty. </p>
+                    </div>
+                  </div>
+                  <div class="qrcode">
+                    <%= raw @svg %>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-1">
+                <p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p>
+                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p>
+                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p>
+              </div>
+            </div> <!-- row -->
+
+            <div class="cool-footer">
+              <p class="foot-text"> Prev </p>
+              <p class="foot-text" style="margin-left: 30px;"> Next </p>
+              <p class="foot-text" style="margin-left: 430px;"> 01 </p>
+              <p class="foot-text" style="margin-left: 30px;"> 02 </p>
+              <p class="foot-text" style="margin-left: 30px;"> 03 </p>
+              <p class="foot-text" style="margin-left: 30px;"> 04 </p>
+              <p class="foot-text" style="margin-left: 30px;"> 05 </p>
+              <p class="foot-text" style="margin-left: 400px; border-bottom: 0px;"> Danmu on Slides! </p>
+
+            </div>
+
+          </div> <!-- big-container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <% content_for :after_js do %>
   <script>
+    document.querySelector('iframe').height = 440
+    document.querySelector('iframe').width = 730
     document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight - 30) + "px"
     document.querySelector('.comments').style.width = document.querySelector('iframe').offsetWidth + "px"
     let height = document.querySelector('.comments').offsetHeight
@@ -71,4 +177,10 @@
 
   </script>
 <% end %>
+
+
+
+
+
+
 

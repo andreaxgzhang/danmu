@@ -1,34 +1,23 @@
-<style type="text/css">
-  body {
-    background: #E994A5;
-    min-height: 100vh;
-    width: 100vw;
-  }
-  .login-container {
-    width: 90vw;
-  }
-</style>
-
-
-
-
 
 
 <%= simple_form_for [ slide, comment ], remote: true do |f| %>
-
-    <div class="login-container">
-    <h1>Create Your Danmu</h1>
+  <div class="login-container">
+    <h1>Post your comments!</h1>
       <div class="form-inputs">
-  <%= f.input :content, label: false, placeholder: "leave your comment", required: true, error: 'Please enter your comment', autofocus: true %>
-  <%= f.input :color, label: false, placeholder: "choose a color", collection: %w[red blue green yellow pink red white black], selected: "black", class: "form-control" %>
-  </div>
+        <%= f.input :content, label: false, placeholder: "leave your comment", required: true, error: 'Please enter your comment', autofocus: true %>
+        <%= f.input :color, label: false, placeholder: "choose a color", collection: %w[red blue green yellow pink red white black], selected: "black", class: "form-control" %>
+      </div>
+      <div class="loginbtn">
+        <%= f.button :submit, "Shoot danmu", class: 'submit-btn'%>
 
-  <div class="form-actions">
-
-  <%= f.button :submit, "Shoot danmu", class: 'submit-btn'%>
       </div>
   </div> <!-- login-container -->
-  <% if comment.errors.any? %>
+
+<% end %>
+
+
+
+<% if comment.errors.any? %>
   <div class="errors-container">
     <ul>
       <% comment.errors.full_messages.each do |message| %>
@@ -37,4 +26,4 @@
     </ul>
   </div>
 <% end %>
-<% end %>
+
