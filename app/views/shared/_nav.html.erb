@@ -24,7 +24,7 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i><%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -43,9 +43,9 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <% if user_signed_in? %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><%= link_to "Profile", slides_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+            <li><i class="fa fa-user"></i><%= link_to "Profile", slides_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
             <li><%= link_to destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" do %>
-                  <%= t(".sign_out", default: "Log out") %>
+                  <i class="fa fa-sign-out"></i><%= t(".sign_out", default: "Log out") %>
                 <% end %>
             </li>
           </ul>
