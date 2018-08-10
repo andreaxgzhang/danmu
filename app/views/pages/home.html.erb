@@ -35,6 +35,9 @@
     background-color: transparent;
     min-height: 300px;
     max-width: 100%;
+    position: relative;
+    left: 50px;
+    top: 40px;
   }
   .text-content-bd-two p {
     font-size: 16px;
@@ -102,6 +105,11 @@
       margin-top: 15vh;
     }
   }
+  @media screen and (max-width: 992px) {
+    .text-container-banner {
+      margin-top: 10vh;
+    }
+  }
   @media screen and (max-width: 576px) {
     .text-content-banner {
       font-size: 14px;
@@ -119,7 +127,7 @@
   }
   @media screen and (max-width: 992px) {
     .text-title-banner {
-      font-size: 28px;
+      font-size: 18px;
       font-weight: bold;
       color: white;
       font-family: Georgia, serif;
@@ -193,11 +201,20 @@
     position: absolute;
     top: 274vh;
   }
+@media screen and (min-width: 992px){
+  .frame {
+    background-color: #eee;
+    width: 700px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 10px 100px 0 rgba(10,10,10,0.5);
+  }
+}
 </style>
 <div class="landing">
   <div class="row">
     <div class="col-md-offset-1 col-md-5 col-sm-offset-3 col-sm-8 col-xs-offset-2 col-xs-5">
-      <%= image_tag("classmate.gif", {:class => "main-container"}) %>
+      <div class="frame"><%= image_tag("danmu1.gif", {:class => "main-container"}) %></div>
     </div>
     <div class="col-md-5 col-md-offset-0  col-xs-offset-2 col-xs-8">
       <div class="text-container-banner">
