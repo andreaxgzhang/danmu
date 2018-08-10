@@ -1,255 +1,284 @@
-<html class="sl-root home index mz-history mz-svg mz-localstorage mz-csspositionsticky mz-supports mz-cssanimations mz-backgroundsize mz-no-cssgridlegacy mz-cssgrid mz-flexbox mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fullscreen mz-webpanimation gr__slides_com loaded ua-mac ua-chrome fonts-are-ready" data-account="default"><style type="text/css" id="night-mode-pro-style"></style><link type="text/css" rel="stylesheet" id="night-mode-pro-link"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <title>Danmu – Engage your audience</title>
-    <meta name="description" content="Danmu is cool">
-
-
-    <link rel="manifest" href="/manifest.json">
-
-
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic" rel="stylesheet" type="text/css" data-application-font="opensans">
-
-    <link rel="stylesheet" media="all" href="//assets.slid.es/assets/slides/slides-c6589daceaee3233280d83ec6d641c11d6f37071e10f2983d28ba50cbf7c3bc2.css">
-    <link rel="stylesheet" media="all" href="//assets.slid.es/assets/application-647ef91b068b1c7ffdd90359cecbc27dbd3507c491afe0a20fd05f405ae9df0c.css">
-
-    <meta name="csrf-param" content="authenticity_token">
-<meta name="csrf-token" content="p8gSYEHLQCNyAosQLzN10P2UrixhTpWCB2ZxOvUPOqRnG40pHeKt+/XpJfMXb2YTdTOWM7Gr1jhBe97SgxCgcw==">
-    <script type="application/javascript" async="" defer="" src="https://by2.uservoice.com/t2/147810/web/7kYckRMG5VCqGMAN/track.js?_=1533529985952&amp;s=0&amp;c=__uvSessionData0&amp;d=eyJ1Ijp7ImVtYWlsIjoiamltczg5ODFAZ21haWwuY29tIiwibmFtZSI6IkRhaSBMaSIsImlkIjoiOTA2Mzg3IiwidHlwZSI6ImRlZmF1bHQiLCJjcmVhdGVkX2F0IjoxNTMxNzI1NzUyMDAwLCJvIjotNDgwfSwiZSI6eyJ1IjoiaHR0cHM6Ly9zbGlkZXMuY29tLyIsInIiOiIifX0%3D"></script><script type="text/javascript" async="" src="//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
-  if( !/dnt=1/.test( window.location.search ) ) {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-39670045-1', 'auto');
-    ga('send', 'pageview');
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  body {
+    min-height: 100vh;
+  }
+  .bd {
+    height: 100vh;
+    width: 100vw;
+  }
+  .bd-one {
+    background-color: white;
+  }
+  .bd-two {
+    background-color: #eee;
+  }
+  .bd-three {
+    background-color: white;
+  }
+  .landing {
+    padding-top: 20vh;
+    height: 100vh;
+  }
+  @media screen and (min-width: 567px) {
+    .bd {
+      padding-top: 20vh;
+    }
+  }
+  @media screen and (max-width: 567px) {
+    .bd {
+      padding-top: 5vh;
+    }
+  }
+  .main-container {
+    background-color: transparent;
+    min-height: 300px;
+    max-width: 100%;
+  }
+  .text-content-bd-two p {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 992px) {
+    .text-title-bd-two {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .main-container {
+      max-height: 200px;
+    }
+    .text-content-bd-two p {
+      font-size: 12px;
+    }
+    .text-title-bd-two {
+      padding-top: 3vh;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .main-container {
+      min-height: 200px;
+      min-width: 260px;
+    }
+  }
+  .text-container-banner {
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-content-banner {
+    font-size: 16px;
+    font-weight: 100;
+    color: white;
+  }
+  .text-container {
+    line-height: 2;
+  }
+  .text-content-bd-one {
+    font-size: 16px;
+    font-weight: 100;
+    color: black;
+  }
+  .text-content-bd-two {
+    font-size: 16px;
+    font-weight: 100;
+    color: black;
+  }
+  @media screen and (max-width: 576px) {
+    .sign-up-button {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .text-container-banner {
+      margin-top: 15vh;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .text-content-banner {
+      font-size: 14px;
+      color: white;
+    }
   }
 
-</script>
-    <!--[if lt IE 9]>
-    <script src="//assets.slid.es/assets/html5shiv-0bfa553ebc9c42abf66248f2f3feba0935da70b430bace410f80b72729c14820.js"></script>
-<![endif]-->
-      <meta name="google-site-verification" content="YfMESTlL7SyDvG0C9wrSlVbTgX9k98LQqj0UvvliCB8">
+  @media screen and (min-width: 992px) {
+    .text-title-banner {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .text-title-banner {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .text-title-bd-one {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+    .text-content-bd-one p {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .text-title-bd-one {
+      font-size: 26px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+    .text-content-bd-one p {
+      font-size: 12px;
+    }
+  }
 
-  <meta name="google-site-verification" content="ZDJwuX_CP9lIth9THnv6qBJSGq_j4q9hJjgQ92mGVQw">
-  <meta name="wot-verification" content="00c06bb071cd7f2c0a78">
-  <meta name="yandex-verification" content="6f48f48f1baa3ab1">
-
-  <link rel="prerender" href="http://slides.dev/pricing">
-  <link rel="stylesheet" media="all" href="//assets.slid.es/assets/deck-v2-f7e270a4816d07a3455ccb23881fafb4644f38ebe48a11cf0a70dc11962c130e.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"></head>
-
-  <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
-
-
-
-      <div id="main" class="main " role="main">
-
-
-
-<div class="marquee intro">
-
-  <div class="marquee-background">
-    <svg width="1000" viewBox="0 0 1000 500" preserveAspectRatio="none">
-      <rect width="1000" height="400" x="0" y="0" fill="#E2647D"></rect>
-      <path class="path-1" d="M0,400 L 1000,400 1000,480 S 500,420 0,480 Z" fill="#9E5A63"></path>
-      <path class="path-2" d="M0,400 L 1000,400 1000,445 S 500,420 0,480 Z" fill="#644E5B"></path>
-      <path class="path-3" d="M0,399 L 1000,399 1000,400 S 500,420 0,480 Z" fill="#314455"></path>
-    </svg>
+  .buttons {
+    position: relative;
+    top: 20px;
+  }
+  .sign-up-button {
+    border-radius: 5px !important;
+    margin-right: 10px;
+    color: #444;
+    font-weight: 600;
+    background-color: #F9F9F9;
+  }
+  .sign-up-button:hover {
+    border-radius: 5px !important;
+    color: #111;
+    background-color: white;
+  }
+  .upload-btn {
+    border-radius: 5px !important;
+    background-color: #E994A5;
+    border: none;
+    color: #eee;
+  }
+  .upload-btn:hover {
+    background-color: #EFA9B6;
+    color: white;
+  }
+  .pattern {
+    width:100vw;
+    height: 26vh;
+    position: absolute;
+    top: 75vh;
+  }
+  .pattern-grey {
+    width: 100vw;
+    height: 26vh;
+    position: absolute;
+    top: 174vh;
+  }
+  .pattern-white {
+    width: 100vw;
+    height: 26vh;
+    position: absolute;
+    top: 274vh;
+  }
+</style>
+<div class="landing">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-5 col-sm-offset-3 col-sm-8 col-xs-offset-2 col-xs-5">
+      <%= image_tag("classmate", {:class => "main-container"}) %>
+    </div>
+    <div class="col-md-5 col-md-offset-0  col-xs-offset-2 col-xs-8">
+      <div class="text-container-banner">
+        <div class="text-title-banner">
+          Danmu On Slides
+        </div>
+        <div class="text-content-banner">
+          Engage your audience with a new media
+        </div>
+      <div class="buttons">
+        <% if user_signed_in? %>
+        <% else %>
+          <%= link_to new_user_registration_path, method: :get do %>
+            <button type="button" class="sign-up-button btn-lg">Sign Up Now</button>
+          <% end %>
+        <% end %>
+        <%= link_to new_slide_path, method: :get do %>
+          <button type="button" class="upload-btn btn-lg">Upload Slides</button>
+        <% end %>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="marquee-inner">
-
-    <div class="description">
-      <h2 class="description-title">Danmu On Slides!</h2>
-      <h3 class="description-subtitle">Engage your audience.</h3>
-
-      <a class="button xxl description-cta" href="/daili-1/new" rollapp-href="https://slides.com/daili-1/new">Upload your Slides</a>
-      <a href="#features" class="button white xxl description-cta-secondary" data-scroll-to-offset="0" data-scroll-to="" data-scroll-to-duration="500" rollapp-href="https://slides.com/#features">Learn more</a>
-    </div>
-
-    <div class="demo">
-      <div class="demo-spinner">
-        <div class="sk-fading-circle">
-  <div class="sk-circle1 sk-circle"></div>
-  <div class="sk-circle2 sk-circle"></div>
-  <div class="sk-circle3 sk-circle"></div>
-  <div class="sk-circle4 sk-circle"></div>
-  <div class="sk-circle5 sk-circle"></div>
-  <div class="sk-circle6 sk-circle"></div>
-  <div class="sk-circle7 sk-circle"></div>
-  <div class="sk-circle8 sk-circle"></div>
-  <div class="sk-circle9 sk-circle"></div>
-  <div class="sk-circle10 sk-circle"></div>
-  <div class="sk-circle11 sk-circle"></div>
-  <div class="sk-circle12 sk-circle"></div>
-
+  <%= image_tag("pattern", {:class => "pattern"}) %>
 </div>
-      </div>
-      <div class="demo-content">
-        <div class="browser loaded">
-          <div class="browser-header">
-            <div class="browser-header-dot"></div>
-            <div class="browser-header-dot"></div>
-            <div class="browser-header-dot"></div>
-          </div>
-          <div class="browser-content">
-            <div class="browser-deck reveal-viewport theme-font-opensans">
-              <div class="reveal slide center has-horizontal-slides ready has-light-background" role="application" data-transition-speed="default" data-background-transition="fade">
-                <div class="slides" style="width: 700px; height: 438px; left: 50%; top: 50%; bottom: auto; right: auto; transform: translate(-50%, -50%) scale(0.6);">
-                  <section class="gradient-background past" style="top: 0px; display: block;" hidden="" aria-hidden="true"><div class="float-animation"></div>
-<div class=""></div>
-
-
-
-                </section></div>
-
-                </div><canvas class="playback" width="100" height="100" style="width: 50px; height: 50px;"></canvas></div>
-            </div>
-          </div>
+<div class="bd-one bd">
+  <div class="row">
+  <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-one">
+          Danmu Makes A New Experience
+        </div>
+        <div class="text-content-bd-one">
+          <p>Pellentesque sollicitudin enim in enim facilisis aliquam. Proin non condimentum sem. Maecenas erat neque, dictum id tempus eu, euismod ut diam. Proin diam odio, consectetur non sodales sed, varius ultricies urna. Proin blandit metus eu est tempus, eget mollis lorem tempus. Integer at commodo erat. Nunc fermentum nibh in sapien dapibus congue. Nam rhoncus maximus condimentum. Duis a bibendum lacus, eu accumsan nulla. Integer eget elit quis arcu pharetra malesuada. Maecenas metus ex, eleifend non leo sed, eleifend hendrerit ipsum. Nunc viverra elit cursus, pellentesque nisl eget, congue elit.</p>
         </div>
       </div>
     </div>
 
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-1", {:class => "main-container"}) %>
+      </div>
+    </div>
   </div>
-
-  <a class="scroll-promotion hidden" href="#features" data-scroll-to="" data-scroll-to-duration="500" rollapp-href="https://slides.com/#features">
-    <div class="scroll-promotion-arrow">
-      <i class="line line-1"></i>
-      <i class="line line-2"></i>
-    </div>
-  </a>
+  <%= image_tag("pattern-grey", {:class => "pattern-grey"}) %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<article id="features" class="features">
-
-  <section class="feature loaded">
-    <svg class="feature-edge" viewBox="0 0 1000 40" height="40" preserveAspectRatio="none">
-      <path d="M0,0 L 1000,0 S 500,0 0,40"></path>
-    </svg>
-    <div class="feature-inner">
-      <div class="feature-content">
-        <div class="feature-content-inner">
-          <h3>Danmu makes it fun</h3>
-          <p>Our core feature is a real-time commentary subtitle system that displays user comments as streams of moving subtitles overlaid on the video playback screen, visually resembling a danmaku shooter game. </p>
-        </div>
+<div class="bd-two bd">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-2", {:class => "main-container"}) %>
       </div>
-      <figure class="feature-media">
-        <div class="feature-media-spinner">
-          <div class="sk-fading-circle">
-  <div class="sk-circle1 sk-circle"></div>
-  <div class="sk-circle2 sk-circle"></div>
-  <div class="sk-circle3 sk-circle"></div>
-  <div class="sk-circle4 sk-circle"></div>
-  <div class="sk-circle5 sk-circle"></div>
-  <div class="sk-circle6 sk-circle"></div>
-  <div class="sk-circle7 sk-circle"></div>
-  <div class="sk-circle8 sk-circle"></div>
-  <div class="sk-circle9 sk-circle"></div>
-  <div class="sk-circle10 sk-circle"></div>
-  <div class="sk-circle11 sk-circle"></div>
-  <div class="sk-circle12 sk-circle"></div>
-</div>
-        </div>
-
-
-      </figure>
     </div>
-  </section>
-
-  <section class="feature loaded">
-    <svg class="feature-edge" viewBox="0 0 1000 30" height="30" preserveAspectRatio="none">
-      <path d="M0,0 L 1000,0 1000,30 S 500,30 0,0"></path>
-    </svg>
-    <div class="feature-inner">
-      <div class="feature-content">
-        <div class="feature-content-inner">
-          <h3>Lighten up your crowd</h3>
-          <p>Such subtitles are simultaneously broadcast to all viewers in real-time, creating a chat room experience in which users feel like watching and playing together with others. This system offers users various subtitle controls, including style, format, and movement.</p>
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-two">
+          Danmu Is A New Trend
         </div>
-      </div>
-      <figure class="feature-media">
-        <div class="feature-media-spinner">
-          <div class="sk-fading-circle">
-  <div class="sk-circle1 sk-circle"></div>
-  <div class="sk-circle2 sk-circle"></div>
-  <div class="sk-circle3 sk-circle"></div>
-  <div class="sk-circle4 sk-circle"></div>
-  <div class="sk-circle5 sk-circle"></div>
-  <div class="sk-circle6 sk-circle"></div>
-  <div class="sk-circle7 sk-circle"></div>
-  <div class="sk-circle8 sk-circle"></div>
-  <div class="sk-circle9 sk-circle"></div>
-  <div class="sk-circle10 sk-circle"></div>
-  <div class="sk-circle11 sk-circle"></div>
-  <div class="sk-circle12 sk-circle"></div>
-
-</div>
+        <div class="text-content-bd-two">
+          <p>Maecenas eu scelerisque orci. In dapibus, odio at sagittis pulvinar, lorem urna consequat tellus, eget mattis ex odio in risus. Etiam sapien libero, aliquet ut volutpat in, vulputate ac est. Ut volutpat feugiat urna sit amet fermentum. Duis non mauris nulla. Integer eget magna sit amet elit euismod faucibus. Maecenas vitae urna eu enim egestas tincidunt. Duis bibendum fermentum est. Vivamus turpis neque, cursus vel pellentesque ac, consectetur eget justo. Donec eget neque congue, viverra nulla sed, cursus tellus. Phasellus ultricies lacinia diam. Morbi eu feugiat arcu, eget imperdiet urna.</p>
         </div>
-
-      </figure>
-    </div>
-  </section>
-
-  <section class="feature loaded">
-    <svg class="feature-edge" viewBox="0 0 1000 20" height="20" preserveAspectRatio="none">
-      <path d="M0,0 L 1000,0 1000,20 S 500,20 0,0"></path>
-    </svg>
-
-    <div class="feature-inner">
-      <div class="feature-content">
-        <div class="feature-content-inner" style="max-width: 635px;">
-          <h3>Audience participation</h3>
-          <p>The site also offers a feature called "advanced subtitles", where users can use ECMAScript-based API to control video playback, dynamically change danmu subtitles and draw shapes onto the screen.This functionality is only available with the video poster's permission.</p>
-          <a class="button positive" href="/pricing?highlight=team" rollapp-href="https://slides.com/pricing?highlight=team">Sign up</a>
-        </div>
-      </div>
-      <figure class="feature-media">
-        <div class="feature-media-spinner">
-          <div class="sk-fading-circle">
-  <div class="sk-circle1 sk-circle"></div>
-  <div class="sk-circle2 sk-circle"></div>
-  <div class="sk-circle3 sk-circle"></div>
-  <div class="sk-circle4 sk-circle"></div>
-  <div class="sk-circle5 sk-circle"></div>
-  <div class="sk-circle6 sk-circle"></div>
-  <div class="sk-circle7 sk-circle"></div>
-  <div class="sk-circle8 sk-circle"></div>
-  <div class="sk-circle9 sk-circle"></div>
-  <div class="sk-circle10 sk-circle"></div>
-  <div class="sk-circle11 sk-circle"></div>
-  <div class="sk-circle12 sk-circle"></div>
-
-</div>
-        </div>
-
-      </figure>
-    </div>
-  </section>
-
-</article>
 
       </div>
-   </div> <!--! end of #container -->
-
-
-    <script src="//assets.slid.es/assets/application-826636dae3f849fa51e9bb2cf92de5456f39afde0d87c1dfd5e3ddc2f22a58d7.js" defer="defer"></script>
-      <script src="//assets.slid.es/assets/deck-deefa6098b4c5f524711117d9537aa8119769409582f8fcfd03ccbd99d6ea5e9.js" defer="defer"></script>
-
-
-
-</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
-
+    </div>
+  </div>
+  <%= image_tag("pattern-white", {:class => "pattern-white"}) %>
+</div>
+<div class="bd-three bd">
+  <div class="row">
+  <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-one">
+          Danmu Is Popular
+        </div>
+        <div class="text-content-bd-one">
+          <p>Donec et tempor turpis, id hendrerit nulla. Vivamus nec orci molestie, vestibulum mauris a, iaculis ante. Vivamus malesuada sem ut libero facilisis auctor. Ut dictum dolor mauris, consequat pharetra erat scelerisque a. Aenean varius, risus vitae blandit vulputate, magna libero aliquet sapien, quis euismod risus mi nec mauris. Nunc viverra convallis sem eu malesuada. In consectetur iaculis leo. Maecenas vel lacus risus. Nulla mollis molestie quam eget varius. Fusce facilisis dolor turpis, vel tincidunt nunc consectetur quis. Ut et diam urna. Nulla non sapien ut nisl auctor mattis. Sed pharetra justo sit amet vehicula ornare. Praesent ullamcorper erat enim, sed pretium lacus convallis ac. Pellentesque scelerisque vestibulum tortor id posuere. Suspendisse non neque et ante maximus consequat sed sit amet nisl.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-3", {:class => "main-container"}) %>
+      </div>
+    </div>
+  </div>
+</div>

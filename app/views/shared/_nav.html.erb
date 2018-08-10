@@ -3,6 +3,7 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
+  <h1 style="margin: 0; padding: 0; font-size: 32px; position: absolute; left: 108px; color: white">Danmu</h1>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -10,9 +11,6 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-landing-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-landing-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-landing-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
