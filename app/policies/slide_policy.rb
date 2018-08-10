@@ -15,7 +15,7 @@ class SlidePolicy < ApplicationPolicy
   end
 
   def dashboard?
-    is_owner?
+    return true
   end
 
   private
