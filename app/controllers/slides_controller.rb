@@ -10,8 +10,8 @@ class SlidesController < ApplicationController
     @svg = @qr.as_svg(offset: 0, color: '000',
                     shape_rendering: 'crispEdges',
                     module_size: 2.5)
-
   end
+
   def dashboard
     @slides = Slide.all
     authorize @slides

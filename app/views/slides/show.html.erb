@@ -75,22 +75,27 @@
 
               </div>
               <div class="col-md-1">
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p>
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p>
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p>
+                <a href="https://www.facebook.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p></a>
+
+                <a href="http://www.twiter.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p></a>
+                <a href="http://www.instagram.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p></a>
+
               </div>
             </div> <!-- row -->
 
             <div class="cool-footer">
-              <p class="foot-text"> Prev </p>
-              <p class="foot-text" style="margin-left: 30px;"> Next </p>
+
+              <%= link_to @slide.previous do%>
+                <p class="foot-text"> Prev </p>
+              <% end %>
+              <%= link_to @slide.next do %>
+                <p class="foot-text" style="margin-left: 30px;"> Next </p>
+              <% end %>
               <p class="foot-text" style="margin-left: 430px;"> 01 </p>
               <p class="foot-text" style="margin-left: 30px;"> 02 </p>
               <p class="foot-text" style="margin-left: 30px;"> 03 </p>
               <p class="foot-text" style="margin-left: 30px;"> 04 </p>
               <p class="foot-text" style="margin-left: 30px;"> 05 </p>
-              <p class="foot-text" style="margin-left: 400px; border-bottom: 0px;"> Danmu on Slides! </p>
-
             </div>
 
           </div> <!-- big-container -->
