@@ -36,17 +36,30 @@
 }
 
 /* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
+@media screen and (max-width: 576px) {
+  .navbar-wagon .avatar {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
+  .navbar-landing .avatar {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
 }
-.navbar-landing .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
+@media screen and (min-width: 576px) {
+  .navbar-wagon .avatar {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
+  .navbar-landing .avatar {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
 }
-
 /* Right section */
 .navbar-wagon-right {
   display: flex;

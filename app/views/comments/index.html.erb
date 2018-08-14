@@ -1,6 +1,3 @@
-<!-- <div id="create-message">
-  <%= render 'comments/form', slide: @slide, comment: Comment.new %>
-</div> -->
 <div class="comments-show">
   <% @comments.each do |comment| %>
     <% if comment.approved == false %>
