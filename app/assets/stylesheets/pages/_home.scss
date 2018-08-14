@@ -1381,3 +1381,23 @@ background: #F4F3EF;
     background-color: white;
     margin: 60px;
 }
+
+.submit-btn {
+  background-color: white;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+@media (min-width: 1024px) {
+  .submit-btn {
+    width: 50%;
+  }
+}
+@media (max-width: 1024px) {
+  .submit-btn {
+    width: 100%;
+  }
+}
+

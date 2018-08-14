@@ -34,13 +34,19 @@ class SlidesController < ApplicationController
   def edit
     @slide = Slide.find(params[:id])
   end
+
   def update
-    @slide = Slide.find(params[:id])
-    @slide.update(set_params)
-    redirect_to slides_path
+    @slide = current_user.slides.find(params[:id])
+    authorize @slide
+    if @slide.update(set_params)
+      redirect_to slides_path
+    else
+      render :edit
+    end
   end
   def destroy
-    @slide = Slide.find(params[:id])
+    @slide = current_user.slides.find(params[:id])
+    authorize @slide
     @slide.destroy
     redirect_to slides_path
   end

@@ -45,6 +45,29 @@
   font-weight: bolder;
   border-bottom: 1px solid black;
 }
+
+@media (min-width: 1024px) {
+  .fake-error {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .big-container {
+    display: none;
+  }
+  .fake-error {
+    height: 20vh;
+    width: 90vw;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow:20px 20px 50px rgba(10,10,10,0.5);
+    padding: 20px;
+  }
+  .fake-error p {
+    font-size: 20px;
+  }
+}
+
 </style>
 
 
@@ -91,6 +114,9 @@
               <%= link_to @slide.next do %>
                 <p class="foot-text" style="margin-left: 30px;"> Next </p>
               <% end %>
+              <%= link_to slides_path do %>
+                <p class="foot-text" style="margin-left: 30px">&nbsp All &nbsp</p>
+              <% end %>
               <p class="foot-text" style="margin-left: 430px;"> 01 </p>
               <p class="foot-text" style="margin-left: 30px;"> 02 </p>
               <p class="foot-text" style="margin-left: 30px;"> 03 </p>
@@ -99,9 +125,9 @@
             </div>
 
           </div> <!-- big-container -->
-
-
-
+  <div class="fake-error">
+    <p>The slide is not compatile with your device due to its size, please view on a laptop or desktop.</p>
+  </div>
 
 
 
