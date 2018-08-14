@@ -62,7 +62,7 @@
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-          <%= cl_image_tag slide.photo, height: 200, width: 350, crop: :fill;%>
+          <%= slide.iframe.html_safe %>
             <div class='product-body'>
               <h3><%= slide.name %></h3>
               <p><%= slide.description %></p >
