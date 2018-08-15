@@ -1,11 +1,16 @@
+<style>
+  #slide_iframe {
+    height: 140px !important;
+  }
+
+</style>
 <%= simple_form_for(@slide) do |f| %>
   <div class="login-container">
     <h1>Link your slide</h1>
       <div class="form-inputs">
         <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :iframe %>
-        <%= f.input :photo %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :iframe, as: :text %>
       </div>
     <div class="form-actions">
       <%= f.button :submit, "Update your change" %>

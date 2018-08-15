@@ -87,12 +87,13 @@
           <div class='product-body'>
             <h3><%= slide.name %></h3>
             <p><%= slide.description %></p >
+            <p><%= "https://www.danmuonslide.com/slides/#{slide.id}/comments/" %></p>
             <ul class="icons">
               <li><%= link_to edit_slide_path(slide) do %>
-                <i class="fa fa-edit"></i>
+                <i class="fa fa-edit fa-lg"></i>
               <% end %></li>
               <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-trash fa-lg"></i>
               <% end %></li>
             </ul>
           </div>

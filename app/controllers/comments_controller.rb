@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_slide, only: [:destroy, :update]
   def index
     @comments = policy_scope(Comment).order(created_at: :ASC)
     # @comments = @comments.select{}
-    @slide = Slide.includes(comments: :user).find(params[:slide_id])
+    @slide = Slide.find(params[:slide_id])
   end
   def new
     @slide = Slide.find(params[:slide_id])
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @slide = Slide.find(params[:slide_id])
     @comment.slide = @slide
-    @comment.user = current_user
+    # @comment.user = current_user
     sex_filter = LanguageFilter::Filter.new matchlist: :sex, replacement: :stars
     profanity_filter = LanguageFilter::Filter.new matchlist: :profanity, replacement: :stars
     hate_filter = LanguageFilter::Filter.new matchlist: :hate, replacement: :stars

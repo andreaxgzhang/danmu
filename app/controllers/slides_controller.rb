@@ -5,7 +5,7 @@ class SlidesController < ApplicationController
     @slides = policy_scope(Slide).order(created_at: :desc).select { |slide| slide.user == current_user}
   end
   def show
-    @slide = Slide.includes(comments: :user).find(params[:id])
+    @slide = Slide.find(params[:id])
     @qr = RQRCode::QRCode.new("https://danmu-on-slide.herokuapp.com/slides/#{@slide.id}/comments/new")
     @svg = @qr.as_svg(offset: 0, color: '000',
                     shape_rendering: 'crispEdges',
