@@ -25,7 +25,7 @@
   }
 
 .qrcode {
-  margin-left: 165px;
+  margin-top: 66px;
 }
 
 
@@ -56,16 +56,18 @@
                 <div class="slide-frame">
                   <%= @slide.iframe.html_safe %>
                 </div>
-
+                <div class="comments" style="font-size: 36px">
+                </div>
               </div>
 
               <div class="col-md-5 col-xs-12">
                 <div class="cool-description">
                   <div class="cool-text">
-                    <h1>Modern Minimal</h1>
-                    <div class="mini-text-container">
-                      <p>Young: It feels like it's a missed opportunity to not feature Leonard's return to San Antonio more prominently, and Lakers-Celtics with the new LeBron vs. Kyrie Irving twist on opening week would be quite tasty. </p>
-                    </div>
+                    <h1><%= @slide.name %></h1>
+<!--                     <div class="mini-text-container">
+                      <p><%= @slide.description %> </p>
+
+                    </div> -->
                   </div>
                   <div class="qrcode">
                     <%= raw @svg %>
@@ -177,10 +179,3 @@
 
   </script>
 <% end %>
-
-
-
-
-
-
-
