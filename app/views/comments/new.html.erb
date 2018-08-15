@@ -10,31 +10,34 @@
   <div id="create-message" class="create-message">
     <%= render 'comments/form', slide: @slide, comment: Comment.new %>
   </div>
-  <div class="create-rocket">
-    <%= render 'comments/rocket' %>
-  </div>
 </div>
 <script>
 
 const form = document.getElementById('new_comment')
+const commentInput = document.getElementById('comment_content')
 form.addEventListener('submit', function(event){
   // const newCommentForm = document.getElementById('create-message');
   // newCommentForm.innerHTML = '<%#= j render "comments/form", slide: @slide, comment: Comment.new %>';
-  setTimeout(() => {
-    const commentInput = document.getElementById('comment_content')
-    commentInput.value = ''
-    document.querySelector('select').selectedIndex = 0
-  }, 0)
+  if (commentInput.value != ''){
+    setTimeout(() => {
+
+      commentInput.value = ''
+      document.querySelector('select').selectedIndex = 0
+    }, 0)
+  }
 });
 
 document.getElementById("submit-btn").addEventListener('click', function(event) {
-  const rocket = document.getElementById('rocket')
-  rocket.classList.remove("rocket-station")
-  rocket.classList.add("rocket-shoot")
-  setTimeout(() => {
-    rocket.classList.add("rocket-station")
-    rocket.classList.remove("rocket-shoot")
-  }, 3500)
+  const commentInput = document.getElementById('comment_content')
+  if (commentInput.value != '') {
+    const rocket = document.getElementById('submit-btn')
+    rocket.classList.remove("rocket-station")
+    rocket.classList.add("rocket-shoot")
+    setTimeout(() => {
+      rocket.classList.add("rocket-station")
+      rocket.classList.remove("rocket-shoot")
+    }, 3500)
+  }
 });
 </script>
 
