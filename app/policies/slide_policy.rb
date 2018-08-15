@@ -14,8 +14,16 @@ class SlidePolicy < ApplicationPolicy
     is_owner?
   end
 
-  def dashboard?
+  def update?
     is_owner?
+  end
+
+  def destroy?
+    is_owner?
+  end
+
+  def dashboard?
+    return true
   end
 
   private

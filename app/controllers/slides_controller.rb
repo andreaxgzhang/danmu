@@ -2,7 +2,7 @@ class SlidesController < ApplicationController
 
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
   def index
-    @slides = policy_scope(Slide).order(created_at: :desc)
+    @slides = policy_scope(Slide).order(created_at: :desc).select { |slide| slide.user == current_user}
   end
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
@@ -12,6 +12,7 @@ class SlidesController < ApplicationController
                     module_size: 5)
 
   end
+
   def dashboard
     @slides = Slide.all
     authorize @slides
@@ -34,13 +35,20 @@ class SlidesController < ApplicationController
   def edit
     @slide = Slide.find(params[:id])
   end
+
   def update
-    @slide = Slide.find(params[:id])
-    @slide.update(set_params)
-    redirect_to slides_path
+    @slide = current_user.slides.find(params[:id])
+    authorize @slide
+    if @slide.update(set_params)
+      redirect_to slides_path
+    else
+      render :edit
+    end
   end
   def destroy
-    @slide = Slide.find(params[:id])
+    @slide = current_user.slides.find(params[:id])
+    authorize @slide
+    # @slide.comments.destroy_all
     @slide.destroy
     redirect_to slides_path
   end

@@ -23,6 +23,7 @@
 
 
 </head>
+
 <body>
 
 <div class="wrapper">
@@ -64,7 +65,17 @@
                 </div>
             </div>
         </nav>
-
+      <%= link_to new_slide_path do %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+          </div>
+          <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
+            <div class='product-body'>
+              <h3>+ Add A new Slide !</h3>
+            </div>
+          </div>
+      <% end %>
       <% @slides.each do |slide| %>
         <%= link_to  slide_path(slide) do %>
         <div class="product">
@@ -73,36 +84,27 @@
           </div>
 
           <%= slide.iframe.html_safe %>
-            <div class='product-body'>
-              <h3><%= slide.name %></h3>
-              <p><%= slide.description %></p >
-            </div>
+          <div class='product-body'>
+            <h3><%= slide.name %></h3>
+            <p><%= slide.description %></p >
+            <ul class="icons">
+              <li><%= link_to edit_slide_path(slide) do %>
+                <i class="fa fa-edit"></i>
+              <% end %></li>
+              <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash"></i>
+              <% end %></li>
+            </ul>
           </div>
+        </div>
         <% end %>
       <% end %>
 
-        </div>
-        <%= link_to new_slide_path do %>
-          <div class="product">
-            <div class='product-upvote'>
-              <div class="product-arrow"></div>
-            </div>
-            <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
-              <div class='product-body'>
-                <h3>+ Add A new Slide !</h3>
-              </div>
-            </div>
-        <% end %>
 
         </div>
 
       </div>
     </div>
 
-
-
 </body>
 
-
-
-</html>

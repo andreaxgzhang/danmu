@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     @slide = Slide.includes(comments: :user).find(params[:slide_id])
   end
   def new
-    @comments = Comment.all.select { |comment| comment.approved == true }
     @slide = Slide.find(params[:slide_id])
+    @comments = @slide.comments.select { |comment| comment.approved == true }
     @comment = Comment.new
     authorize @comment
   end
