@@ -30,24 +30,19 @@ class CommentsController < ApplicationController
     @comment.content = violence_filter.sanitize(@comment.content)
     authorize @comment
     if @comment.save
-      ActionCable.server.broadcast("slide_#{@slide.id}_comments", {
-         filter: render(partial: "comments/comment_filter", locals: { comment: @comment, slide: @slide})
-       })
-    else
-      respond_to do |format|
-        # format.html { render 'comments/show' }
-        format.js
+      if @comment.content == ''
+        @comment.destroy
+        render :new
+      else
+        ActionCable.server.broadcast("slide_#{@slide.id}_comments", {
+           filter: render(partial: "comments/comment_filter", locals: { comment: @comment, slide: @slide})
+         })
       end
     end
-
-    # if @comment.save
-    #   ActionCable.server.broadcast("slide_#{@slide.id}", {
-    #     comment: (@comment.content) }
-    #   )
-    # end
   end
 
   def update
+
     colors = { 'red' =>'#FF0000', 'orange' => '#FFA500', 'yellow' => '#FFFF00', 'white' => '#FFFFFF', 'maroon' => '#800000',
           'olive' => '#808000', 'green' => '#008000', 'purple' => '#800080', 'blue' => '#0000FF', 'black' => '#000000',
           'white' => '#FFFFFF', 'pink' => '#FFC0CB'}
