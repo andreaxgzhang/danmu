@@ -21,7 +21,11 @@
     <meta name="viewport" content="width=device-width" />
 
 
-
+<style>
+  .qrcode {
+    display: none;
+  }
+</style>
 </head>
 
 <body>
@@ -76,7 +80,7 @@
             </div>
           </div>
       <% end %>
-      <% @slides.each do |slide| %>
+      <% @slides.each_with_index do |slide, i| %>
         <%= link_to  slide_path(slide) do %>
         <div class="product">
           <div class='product-upvote'>
@@ -87,7 +91,9 @@
           <div class='product-body'>
             <h3><%= slide.name %></h3>
             <p><%= slide.description %></p >
-            <p><%= "https://www.danmuonslide.com/slides/#{slide.id}/comments/" %></p>
+            <div class="qrcode" id="qrcode">
+              <%= raw @qrs[i] %>
+            </div>
             <ul class="icons">
               <li><%= link_to edit_slide_path(slide) do %>
                 <i class="fa fa-edit fa-lg"></i>
@@ -95,6 +101,7 @@
               <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-trash fa-lg"></i>
               <% end %></li>
+              <li><i class="fa fa-home fa-lg" id="show-qr"></i></li>
             </ul>
           </div>
         </div>
@@ -108,4 +115,10 @@
     </div>
 
 </body>
-
+<script>
+  const qr = document.getElementById("show-qr");
+  qr.addEventListener('click', function(event) {
+    const qrcode = document.getElementById('qrcode');
+    qrcode.classList.add('qrcode');
+  })
+</script>
