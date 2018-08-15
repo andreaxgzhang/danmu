@@ -17,18 +17,24 @@ class CommentsController < ApplicationController
     @slide = Slide.find(params[:slide_id])
     @comment.slide = @slide
     @comment.user = current_user
+    sex_filter = LanguageFilter::Filter.new matchlist: :sex, replacement: :stars
+    profanity_filter = LanguageFilter::Filter.new matchlist: :profanity, replacement: :stars
+    hate_filter = LanguageFilter::Filter.new matchlist: :hate, replacement: :stars
+    violence_filter = LanguageFilter::Filter.new matchlist: :violence, replacement: :stars
 
+
+    @comment.content = sex_filter.sanitize(@comment.content)
+    @comment.content = profanity_filter.sanitize(@comment.content)
+    @comment.content = hate_filter.sanitize(@comment.content)
+    @comment.content = violence_filter.sanitize(@comment.content)
     authorize @comment
     if @comment.save
       ActionCable.server.broadcast("slide_#{@slide.id}_comments", {
          filter: render(partial: "comments/comment_filter", locals: { comment: @comment, slide: @slide})
        })
-      respond_to do |format|
-        format.js
-      end
     else
       respond_to do |format|
-        format.html { render 'comments/show' }
+        # format.html { render 'comments/show' }
         format.js
       end
     end

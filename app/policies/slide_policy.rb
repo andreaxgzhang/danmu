@@ -11,10 +11,15 @@ class SlidePolicy < ApplicationPolicy
     return true
   end
   def show?
-    return true
+    is_owner?
   end
 
   def dashboard?
-    return true
+    is_owner?
+  end
+
+  private
+  def is_owner?
+    user == record.user
   end
 end

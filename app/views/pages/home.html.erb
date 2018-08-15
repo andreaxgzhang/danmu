@@ -1,0 +1,285 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  body {
+    min-height: 100vh;
+  }
+  .bd {
+    height: 100vh;
+    width: 100vw;
+  }
+  .bd-one {
+    background-color: white;
+  }
+  .bd-two {
+    background-color: #eee;
+  }
+  .bd-three {
+    background-color: white;
+  }
+  .landing {
+    padding-top: 20vh;
+    height: 100vh;
+  }
+  @media screen and (min-width: 567px) {
+    .bd {
+      padding-top: 20vh;
+    }
+  }
+  @media screen and (max-width: 567px) {
+    .bd {
+      padding-top: 5vh;
+    }
+  }
+  .main-container {
+    background-color: transparent;
+    min-height: 300px;
+    max-width: 100%;
+  }
+  .text-content-bd-two p {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 992px) {
+    .text-title-bd-two {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .main-container {
+      max-height: 200px;
+    }
+    .text-content-bd-two p {
+      font-size: 12px;
+    }
+    .text-title-bd-two {
+      padding-top: 3vh;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .main-container {
+      min-height: 200px;
+      min-width: 260px;
+    }
+  }
+  .text-container-banner {
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-content-banner {
+    font-size: 16px;
+    font-weight: 100;
+    color: white;
+  }
+  .text-container {
+    line-height: 2;
+  }
+  .text-content-bd-one {
+    font-size: 16px;
+    font-weight: 100;
+    color: black;
+  }
+  .text-content-bd-two {
+    font-size: 16px;
+    font-weight: 100;
+    color: black;
+  }
+  @media screen and (max-width: 576px) {
+    .sign-up-button {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .text-container-banner {
+      margin-top: 15vh;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .text-content-banner {
+      font-size: 14px;
+      color: white;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .text-title-banner {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .text-title-banner {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      font-family: Georgia, serif;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .text-title-bd-one {
+      font-size: 32px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+    .text-content-bd-one p {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .text-title-bd-one {
+      font-size: 26px;
+      font-weight: bold;
+      color: black;
+      font-family: Georgia, serif;
+    }
+    .text-content-bd-one p {
+      font-size: 12px;
+    }
+  }
+
+  .buttons {
+    position: relative;
+    top: 20px;
+  }
+  .sign-up-button {
+    border-radius: 5px !important;
+    margin-right: 10px;
+    color: #444;
+    font-weight: 600;
+    background-color: #F9F9F9;
+  }
+  .sign-up-button:hover {
+    border-radius: 5px !important;
+    color: #111;
+    background-color: white;
+  }
+  .upload-btn {
+    border-radius: 5px !important;
+    background-color: #E994A5;
+    border: none;
+    color: #eee;
+  }
+  .upload-btn:hover {
+    background-color: #EFA9B6;
+    color: white;
+  }
+  .pattern {
+    width:100vw;
+    height: 26vh;
+    position: absolute;
+    top: 75vh;
+  }
+  .pattern-grey {
+    width: 100vw;
+    height: 26vh;
+    position: absolute;
+    top: 174vh;
+  }
+  .pattern-white {
+    width: 100vw;
+    height: 26vh;
+    position: absolute;
+    top: 274vh;
+  }
+</style>
+<div class="landing">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-5 col-sm-offset-3 col-sm-8 col-xs-offset-2 col-xs-5">
+      <%= image_tag("classmate", {:class => "main-container"}) %>
+    </div>
+    <div class="col-md-5 col-md-offset-0  col-xs-offset-2 col-xs-8">
+      <div class="text-container-banner">
+        <div class="text-title-banner">
+          Danmu On Slides
+        </div>
+        <div class="text-content-banner">
+          Engage your audience with a new media
+        </div>
+      <div class="buttons">
+        <% if user_signed_in? %>
+        <% else %>
+          <%= link_to new_user_registration_path, method: :get do %>
+            <button type="button" class="sign-up-button btn-lg">Sign Up Now</button>
+          <% end %>
+        <% end %>
+        <%= link_to new_slide_path, method: :get do %>
+          <button type="button" class="upload-btn btn-lg">Upload Slides</button>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <%= image_tag("pattern", {:class => "pattern"}) %>
+</div>
+<div class="bd-one bd">
+  <div class="row">
+  <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-one">
+          Danmu Makes A New Experience
+        </div>
+        <div class="text-content-bd-one">
+          <p>Pellentesque sollicitudin enim in enim facilisis aliquam. Proin non condimentum sem. Maecenas erat neque, dictum id tempus eu, euismod ut diam. Proin diam odio, consectetur non sodales sed, varius ultricies urna. Proin blandit metus eu est tempus, eget mollis lorem tempus. Integer at commodo erat. Nunc fermentum nibh in sapien dapibus congue. Nam rhoncus maximus condimentum. Duis a bibendum lacus, eu accumsan nulla. Integer eget elit quis arcu pharetra malesuada. Maecenas metus ex, eleifend non leo sed, eleifend hendrerit ipsum. Nunc viverra elit cursus, pellentesque nisl eget, congue elit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-1", {:class => "main-container"}) %>
+      </div>
+    </div>
+  </div>
+  <%= image_tag("pattern-grey", {:class => "pattern-grey"}) %>
+</div>
+<div class="bd-two bd">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-2", {:class => "main-container"}) %>
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-two">
+          Danmu Is A New Trend
+        </div>
+        <div class="text-content-bd-two">
+          <p>Maecenas eu scelerisque orci. In dapibus, odio at sagittis pulvinar, lorem urna consequat tellus, eget mattis ex odio in risus. Etiam sapien libero, aliquet ut volutpat in, vulputate ac est. Ut volutpat feugiat urna sit amet fermentum. Duis non mauris nulla. Integer eget magna sit amet elit euismod faucibus. Maecenas vitae urna eu enim egestas tincidunt. Duis bibendum fermentum est. Vivamus turpis neque, cursus vel pellentesque ac, consectetur eget justo. Donec eget neque congue, viverra nulla sed, cursus tellus. Phasellus ultricies lacinia diam. Morbi eu feugiat arcu, eget imperdiet urna.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <%= image_tag("pattern-white", {:class => "pattern-white"}) %>
+</div>
+<div class="bd-three bd">
+  <div class="row">
+  <div class="col-md-offset-1 col-md-5 col-xs-offset-2 col-xs-8">
+      <div class="text-container">
+        <div class="text-title-bd-one">
+          Danmu Is Popular
+        </div>
+        <div class="text-content-bd-one">
+          <p>Donec et tempor turpis, id hendrerit nulla. Vivamus nec orci molestie, vestibulum mauris a, iaculis ante. Vivamus malesuada sem ut libero facilisis auctor. Ut dictum dolor mauris, consequat pharetra erat scelerisque a. Aenean varius, risus vitae blandit vulputate, magna libero aliquet sapien, quis euismod risus mi nec mauris. Nunc viverra convallis sem eu malesuada. In consectetur iaculis leo. Maecenas vel lacus risus. Nulla mollis molestie quam eget varius. Fusce facilisis dolor turpis, vel tincidunt nunc consectetur quis. Ut et diam urna. Nulla non sapien ut nisl auctor mattis. Sed pharetra justo sit amet vehicula ornare. Praesent ullamcorper erat enim, sed pretium lacus convallis ac. Pellentesque scelerisque vestibulum tortor id posuere. Suspendisse non neque et ante maximus consequat sed sit amet nisl.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-md-offset-0 col-xs-offset-2 col-xs-8">
+      <div class="main-container">
+        <%= image_tag("landing-img-3", {:class => "main-container"}) %>
+      </div>
+    </div>
+  </div>
+</div>
