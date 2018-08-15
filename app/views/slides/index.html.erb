@@ -39,14 +39,24 @@
                 </div>
             </div>
         </nav>
-
+      <%= link_to new_slide_path do %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+          </div>
+          <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
+            <div class='product-body'>
+              <h3>+ Add A new Slide !</h3>
+            </div>
+          </div>
+      <% end %>
       <% @slides.each do |slide| %>
         <%= link_to  slide_path(slide) do %>
         <div class="product">
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-          <%= cl_image_tag slide.photo, height: 200, width: 350, crop: :fill;%>
+          <%= slide.iframe.html_safe %>
           <div class='product-body'>
             <h3><%= slide.name %></h3>
             <p><%= slide.description %></p >
@@ -67,17 +77,7 @@
             <li><a href=""><i class="fa fa-share"></i></a ></li>
             <li><a href=""><i class="fa fa-star"></i></a ></li>
           </ul> -->
-        <%= link_to new_slide_path do %>
-          <div class="product">
-            <div class='product-upvote'>
-              <div class="product-arrow"></div>
-            </div>
-            <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
-              <div class='product-body'>
-                <h3>+ Add A new Slide !</h3>
-              </div>
-            </div>
-        <% end %>
+
 
         </div>
 
