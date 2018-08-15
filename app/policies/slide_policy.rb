@@ -14,6 +14,14 @@ class SlidePolicy < ApplicationPolicy
     is_owner?
   end
 
+  def update?
+    is_owner?
+  end
+
+  def destroy?
+    is_owner?
+  end
+
   def dashboard?
     return true
   end

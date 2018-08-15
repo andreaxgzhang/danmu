@@ -1057,7 +1057,7 @@ textarea.form-control {
 
 /* Product image */
 .product-image {
-  border-radius: 10px;
+
   margin-right: 20px;
   width: 175px;
 }
@@ -1070,20 +1070,13 @@ textarea.form-control {
   font-weight: bold;
   font-size: 13px;
   line-height: 20px;
+  float: left;
 }
 .product-count {
   margin: 2px 0 0;
 }
 .product-arrow {
-  transition: all 0.15s ease;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid transparent;
-  border-bottom: 9px solid black;
-  border-radius: 2px;
-  margin: auto;
+
 }
 
 /* Controls design */
@@ -1104,7 +1097,7 @@ textarea.form-control {
 .product-controls-hidden a {
   color: transparent;
   font-size: 15px;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   border-color: transparent;
 }
 
@@ -1112,6 +1105,11 @@ textarea.form-control {
 .product:hover {
   background: #f7f7fa;
   cursor: pointer;
+  .icons {
+    display: flex;
+    list-style-type: none;
+    float: right;
+  }
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
   color: #5898f1;
@@ -1129,5 +1127,6 @@ textarea.form-control {
 .product-upvote:hover .product-arrow {
   border-bottom: 9px solid #5898f1;
 }
-
-
+.icons {
+  display: none;
+}

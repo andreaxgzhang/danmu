@@ -45,6 +45,29 @@
   font-weight: bolder;
   border-bottom: 1px solid black;
 }
+
+@media (min-width: 1024px) {
+  .fake-error {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .big-container {
+    display: none;
+  }
+  .fake-error {
+    height: 20vh;
+    width: 90vw;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow:20px 20px 50px rgba(10,10,10,0.5);
+    padding: 20px;
+  }
+  .fake-error p {
+    font-size: 20px;
+  }
+}
+
 </style>
 
 
@@ -75,28 +98,36 @@
 
               </div>
               <div class="col-md-1">
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p>
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p>
-                <p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p>
+                <a href="https://www.facebook.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p></a>
+
+                <a href="http://www.twiter.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p></a>
+                <a href="http://www.instagram.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p></a>
+
               </div>
             </div> <!-- row -->
 
             <div class="cool-footer">
-              <p class="foot-text"> Prev </p>
-              <p class="foot-text" style="margin-left: 30px;"> Next </p>
+
+              <%= link_to @slide.previous do%>
+                <p class="foot-text"> Prev </p>
+              <% end %>
+              <%= link_to @slide.next do %>
+                <p class="foot-text" style="margin-left: 30px;"> Next </p>
+              <% end %>
+              <%= link_to slides_path do %>
+                <p class="foot-text" style="margin-left: 30px">&nbsp All &nbsp</p>
+              <% end %>
               <p class="foot-text" style="margin-left: 430px;"> 01 </p>
               <p class="foot-text" style="margin-left: 30px;"> 02 </p>
               <p class="foot-text" style="margin-left: 30px;"> 03 </p>
               <p class="foot-text" style="margin-left: 30px;"> 04 </p>
               <p class="foot-text" style="margin-left: 30px;"> 05 </p>
-              <p class="foot-text" style="margin-left: 400px; border-bottom: 0px;"> Danmu on Slides! </p>
-
             </div>
 
           </div> <!-- big-container -->
-
-
-
+  <div class="fake-error">
+    <p>The slide is not compatile with your device due to its size, please view on a laptop or desktop.</p>
+  </div>
 
 
 
