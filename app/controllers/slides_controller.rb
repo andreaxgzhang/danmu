@@ -2,7 +2,7 @@ class SlidesController < ApplicationController
 
   before_action :set_slide, only: [:show, :edit, :update, :destroy]
   def index
-    @slides = policy_scope(Slide).order(created_at: :desc)
+    @slides = policy_scope(Slide).order(created_at: :desc).select { |slide| slide.user == current_user }
   end
   def show
     @slide = Slide.includes(comments: :user).find(params[:id])
