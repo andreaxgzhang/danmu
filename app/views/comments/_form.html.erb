@@ -1,11 +1,17 @@
 <style type="text/css">
-  .rocket-station {
-  animation: MoveUpDown 2s ease-in-out infinite;
+  .hand-station {
+  animation: MoveUpDown 0.5s ease-in-out infinite;
   position: absolute;
   left: calc(50% - 50px);
-  bottom: 0;
+  bottom: 100px;
   width: 100px;
 }
+  .button-station {
+    position: absolute;
+    left: calc(50% - 100px);
+    bottom: 0;
+    width: 200px;
+  }
   .rocket-shoot {
     animation: ShootUp 3s linear 1;
     position: absolute;
@@ -16,10 +22,10 @@
 
 @keyframes MoveUpDown {
   0%, 100% {
-    bottom: 0;
+    bottom: 100px;
   }
   50% {
-    bottom: 30px;
+    bottom: 150px;
   }
 }
 
@@ -53,8 +59,8 @@
         <%= f.input :color, label: false, placeholder: "choose a color", collection: ['- select color -', 'red', 'blue', 'green', 'yellow', 'pink', 'red', 'white', 'black'], selected: "- select color - ", class: "form-control" %>
       </div>
       <div class="create-rocket">
-        <%= image_submit_tag("rocket.png", id: 'submit-btn', class: 'rocket-station', alt: 'Submit')
- %>
+        <%= image_tag "thumb-down.png", class: 'hand-station' %>
+        <%= image_submit_tag("red-button.png", id: 'submit-btn', class: 'button-station', alt: 'Submit') %>
       </div>
   </div> <!-- login-container -->
 
