@@ -7,9 +7,8 @@
     display: none;
   }
   .qrcode-show {
-    position: absolute;
-    z-index: 500;
-    left: calc(50% - 150px);
+    position: fixed;
+    left: calc(50% - 100px);
     top: calc(50% - 200px);
   }
   .backboard {
@@ -115,7 +114,7 @@
           </div>
       <% end %>
       <% @slides.each_with_index do |slide, i| %>
-      <div class="qrcode-hide" id="qrcode">
+        <div class="qrcode-hide" id="qrcode">
           <div class="bar"><div id="cross">X</div></div>
           <div class="backboard"><%= raw @qrs[i] %></div>
         </div>
@@ -124,7 +123,6 @@
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-
           <%= slide.iframe.html_safe %>
           <div class='product-body'>
             <h3><%= slide.name %></h3>
