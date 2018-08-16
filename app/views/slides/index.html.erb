@@ -3,8 +3,41 @@
   height: 250px;
   width: 400px;
 }
-
-
+  .qrcode-hide {
+    display: none;
+  }
+  .qrcode-show {
+    position: fixed;
+    left: calc(50% - 100px);
+    top: calc(50% - 200px);
+  }
+  .backboard {
+    background-color: #E2647D;
+    width: 300px;
+    height: 250px;
+    border-radius: 0 0 10px 10px;
+    padding-left: 48px;
+    padding-top: 21px;
+  }
+  .bar {
+    background-color: #2b81bf;
+    border-radius: 10px 10px 0 0;
+    height: 30px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+  }
+  #cross {
+    font-size: 24px;
+    color: black;
+    text-align: right;
+    cursor: pointer;
+  }
+  .fa-ban:hover {
+    color: #ff0000;
+  }
+  .fa-ban {
+    color: #68B3C8;
+  }
 </style>
 
 <!doctype html>
@@ -81,19 +114,19 @@
           </div>
       <% end %>
       <% @slides.each_with_index do |slide, i| %>
+        <div class="qrcode-hide" id="qrcode">
+          <div class="bar"><div id="cross">X</div></div>
+          <div class="backboard"><%= raw @qrs[i] %></div>
+        </div>
         <%= link_to  slide_path(slide) do %>
         <div class="product">
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-
           <%= slide.iframe.html_safe %>
           <div class='product-body'>
             <h3><%= slide.name %></h3>
             <p><%= slide.description %></p >
-            <div class="qrcode" id="qrcode">
-              <%= raw @qrs[i] %>
-            </div>
             <ul class="icons">
               <li><%= link_to edit_slide_path(slide) do %>
                 <i class="fa fa-edit fa-lg"></i>
@@ -101,7 +134,7 @@
               <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-trash fa-lg"></i>
               <% end %></li>
-              <li><i class="fa fa-home fa-lg" id="show-qr"></i></li>
+              <li><i class="fa fa-ban fa-lg" id="show-qr"></i></li>
             </ul>
           </div>
         </div>
@@ -117,8 +150,14 @@
 </body>
 <script>
   const qr = document.getElementById("show-qr");
+  const qrcode = document.getElementById('qrcode');
   qr.addEventListener('click', function(event) {
-    const qrcode = document.getElementById('qrcode');
-    qrcode.classList.add('qrcode');
+    qrcode.classList.remove('qrcode-hide');
+    qrcode.classList.add('qrcode-show');
+  })
+  const cross = document.getElementById("cross");
+  cross.addEventListener("click", function(event) {
+    qrcode.classList.remove('qrcode-show');
+    qrcode.classList.add('qrcode-hide');
   })
 </script>
