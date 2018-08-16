@@ -67,13 +67,59 @@
     font-size: 20px;
   }
 }
-
+.code {
+  margin: 0 auto;
+}
+.qrcode-hide {
+    display: none;
+  }
+  .qrcode-show {
+    position: absolute;
+    z-index: 500;
+    top: calc(50% - 325px);
+    left: calc(50% - 350px);
+  }
+  .backboard {
+    background-color: #E994A5;
+    width: 700px;
+    height: 650px;
+    border-radius: 0 0 10px 10px;
+    padding: 15px 45px;
+  }
+  .bar {
+    background-color: #5bb1cf;
+    border-radius: 10px 10px 0 0;
+    height: 50px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+  }
+  #cross {
+    font-size: 24px;
+    color: black;
+    text-align: right;
+    cursor: pointer;
+  }
+  .fa-ban:hover {
+    color: #ff0000;
+  }
+  .fa-ban {
+    color: #68B3C8;
+  }
+  .show-message {
+    display: none;
+  }
+  .blur {
+    -webkit-filter: filter: blur(5px);
+    filter: blur(5px);
+  }
 </style>
 
-
-          <div class="big-container">
+            <div class="qrcode-hide" id="qrcode">
+              <div class="bar"><div id="cross">X</div></div>
+              <div class="backboard"><%= raw @svg %></div>
+            </div>
+          <div class="big-container" id="big-container">
             <div class="row">
-
 
               <div class="col-md-6 col-xs-12">
                 <div class="slide-frame">
@@ -93,7 +139,7 @@
                     </div>
                   </div>
                   <div class="qrcode">
-                    <%= raw @svg %>
+                    <button class="btn btn-warning btn-lg" id="show-qr">show QR code</button>
                   </div>
                 </div>
 
@@ -141,11 +187,22 @@
 
 
 
-
-
-
 <% content_for :after_js do %>
   <script>
+    const qr = document.getElementById("show-qr");
+    const qrcode = document.getElementById('qrcode');
+    const page = document.getElementById('big-container');
+    qr.addEventListener('click', function(event) {
+      qrcode.classList.remove('qrcode-hide');
+      qrcode.classList.add('qrcode-show');
+      page.classList.add('blur');
+    })
+    const cross = document.getElementById("cross");
+    cross.addEventListener("click", function(event) {
+      qrcode.classList.remove('qrcode-show');
+      qrcode.classList.add('qrcode-hide');
+      page.classList.remove('blur');
+    })
     document.querySelector('iframe').height = 440
     document.querySelector('iframe').width = 730
     document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight - 30) + "px"

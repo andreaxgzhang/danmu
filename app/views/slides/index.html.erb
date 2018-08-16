@@ -12,7 +12,7 @@
     top: calc(50% - 200px);
   }
   .backboard {
-    background-color: #E2647D;
+    background-color: #E994A5;
     width: 300px;
     height: 250px;
     border-radius: 0 0 10px 10px;
@@ -20,7 +20,7 @@
     padding-top: 21px;
   }
   .bar {
-    background-color: #2b81bf;
+    background-color: #4ba1cf;
     border-radius: 10px 10px 0 0;
     height: 30px;
     padding-right: 20px;
@@ -34,9 +34,15 @@
   }
   .fa-ban:hover {
     color: #ff0000;
+    .show-message {
+
+    }
   }
   .fa-ban {
     color: #68B3C8;
+  }
+  .show-message {
+    display: none;
   }
 </style>
 
@@ -134,7 +140,8 @@
               <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <i class="fa fa-trash fa-lg"></i>
               <% end %></li>
-              <li><i class="fa fa-ban fa-lg" id="show-qr"></i></li>
+              <li><i class="fa fa-ban fa-lg" id="show-qr"></i>
+              <p style="">start filtering !</p></li>
             </ul>
           </div>
         </div>
