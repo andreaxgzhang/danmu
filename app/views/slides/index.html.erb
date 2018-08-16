@@ -149,15 +149,19 @@
 
 </body>
 <script>
-  const qr = document.getElementById("show-qr");
-  const qrcode = document.getElementById('qrcode');
-  qr.addEventListener('click', function(event) {
-    qrcode.classList.remove('qrcode-hide');
-    qrcode.classList.add('qrcode-show');
-  })
-  const cross = document.getElementById("cross");
-  cross.addEventListener("click", function(event) {
-    qrcode.classList.remove('qrcode-show');
-    qrcode.classList.add('qrcode-hide');
-  })
+  const qrs = document.querySelectorAll('#show-qr');
+  const qrcodes = document.querySelectorAll('#qrcode');
+  for ( let i = 0; i < qrs.length; i++ ) {
+    qrs[i].addEventListener('click', function(event) {
+      qrcodes[i].classList.remove('qrcode-hide');
+      qrcodes[i].classList.add('qrcode-show');
+    })
+  }
+  const cross = document.querySelectorAll('#cross');
+  for ( let i = 0; i < cross.length; i++ ){
+    cross[i].addEventListener("click", function(event) {
+      qrcodes[i].classList.remove('qrcode-show');
+      qrcodes[i].classList.add('qrcode-hide');
+    })
+  }
 </script>
