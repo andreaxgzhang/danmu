@@ -1,31 +1,18 @@
 <style type="text/css">
-  .rocket-station {
-  animation: MoveUpDown 2s ease-in-out infinite;
-  position: absolute;
-  left: calc(50% - 50px);
-  bottom: 0;
-  width: 100px;
-}
   .rocket-shoot {
     animation: ShootUp 3s linear 1;
     position: absolute;
     left: calc(50% - 50px);
-    bottom: 0;
+    bottom: -200px;
     width: 100px;
   }
 
-@keyframes MoveUpDown {
-  0%, 100% {
-    bottom: 0;
+  .rocket-hide {
+    display: none;
   }
-  50% {
-    bottom: 30px;
-  }
-}
-
 @keyframes ShootUp {
   0% {
-    bottom: 0;
+    bottom: -200px;
   }
   10% {
     bottom: 50px;
@@ -41,8 +28,7 @@
   }
 }
 
-@keyframes
 </style>
 
-  <%= image_tag("rocket.png", {:class => "rocket-station", :id => "rocket"}) %>
+  <%= image_tag("rocket.png", {:class => "rocket-hide", :id => "rocket"}) %>
 

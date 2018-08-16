@@ -9,6 +9,7 @@
 <div class="comment-page">
   <div id="create-message" class="create-message">
     <%= render 'comments/form', slide: @slide, comment: Comment.new %>
+    <%= render 'comments/rocket' %>
   </div>
 </div>
 <script>
@@ -30,12 +31,12 @@ form.addEventListener('submit', function(event){
 document.getElementById("submit-btn").addEventListener('click', function(event) {
   const commentInput = document.getElementById('comment_content')
   if (commentInput.value != '') {
-    const rocket = document.getElementById('submit-btn')
-    rocket.classList.remove("rocket-station")
-    rocket.classList.add("rocket-shoot")
+    const rocket = document.getElementById('rocket')
+    rocket.classList.add("rocket-shoot");
+    rocket.classList.remove("rocket-hide");
     setTimeout(() => {
-      rocket.classList.add("rocket-station")
-      rocket.classList.remove("rocket-shoot")
+      rocket.classList.remove("rocket-shoot");
+      rocket.classList.add("rocket-hide");
     }, 3500)
   }
 });
