@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :user
-  belongs_to :slide, dependent: :destroy
-  validates :content, presence: true
+  # belongs_to :user
+  belongs_to :slide
+  # validates :content, presence: true
   def from?(some_user)
     user == some_user
   end

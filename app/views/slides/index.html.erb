@@ -1,3 +1,67 @@
+<style>
+  iframe {
+  height: 250px;
+  width: 400px;
+}
+  .qrcode-hide {
+    display: none;
+  }
+  .qrcode-show {
+    position: absolute;
+    z-index: 500;
+    left: calc(50% - 150px);
+    top: calc(50% - 200px);
+  }
+  .backboard {
+    background-color: #E2647D;
+    width: 300px;
+    height: 250px;
+    border-radius: 0 0 10px 10px;
+    padding-left: 48px;
+    padding-top: 21px;
+  }
+  .bar {
+    background-color: #2b81bf;
+    border-radius: 10px 10px 0 0;
+    height: 30px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+  }
+  #cross {
+    font-size: 24px;
+    color: black;
+    text-align: right;
+    cursor: pointer;
+  }
+  .fa-ban:hover {
+    color: #ff0000;
+  }
+  .fa-ban {
+    color: #68B3C8;
+  }
+</style>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Dashboard</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+<style>
+  .qrcode {
+    display: none;
+  }
+</style>
+</head>
+
 <body>
 
 <div class="wrapper">
@@ -39,45 +103,46 @@
                 </div>
             </div>
         </nav>
-
-      <% @slides.each do |slide| %>
+      <%= link_to new_slide_path do %>
+        <div class="product">
+          <div class='product-upvote'>
+            <div class="product-arrow"></div>
+          </div>
+          <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
+            <div class='product-body'>
+              <h3>+ Add A new Slide !</h3>
+            </div>
+          </div>
+      <% end %>
+      <% @slides.each_with_index do |slide, i| %>
+      <div class="qrcode-hide" id="qrcode">
+          <div class="bar"><div id="cross">X</div></div>
+          <div class="backboard"><%= raw @qrs[i] %></div>
+        </div>
         <%= link_to  slide_path(slide) do %>
         <div class="product">
           <div class='product-upvote'>
             <div class="product-arrow"></div>
           </div>
-          <%= cl_image_tag slide.photo, height: 200, width: 350, crop: :fill;%>
+
+          <%= slide.iframe.html_safe %>
           <div class='product-body'>
             <h3><%= slide.name %></h3>
             <p><%= slide.description %></p >
             <ul class="icons">
               <li><%= link_to edit_slide_path(slide) do %>
-                <i class="fa fa-edit"></i>
+                <i class="fa fa-edit fa-lg"></i>
               <% end %></li>
               <li><%= link_to slide_path(slide), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-trash fa-lg"></i>
               <% end %></li>
+              <li><i class="fa fa-ban fa-lg" id="show-qr"></i></li>
             </ul>
           </div>
         </div>
         <% end %>
       <% end %>
-<!--           <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-            <li><a href=""><i class="fa fa-heart"></i></a ></li>
-            <li><a href=""><i class="fa fa-share"></i></a ></li>
-            <li><a href=""><i class="fa fa-star"></i></a ></li>
-          </ul> -->
-        <%= link_to new_slide_path do %>
-          <div class="product">
-            <div class='product-upvote'>
-              <div class="product-arrow"></div>
-            </div>
-            <%= image_tag "add.jpg", height: 200, width: 350, crop: :fill;%>
-              <div class='product-body'>
-                <h3>+ Add A new Slide !</h3>
-              </div>
-            </div>
-        <% end %>
+
 
         </div>
 
@@ -85,4 +150,16 @@
     </div>
 
 </body>
-
+<script>
+  const qr = document.getElementById("show-qr");
+  const qrcode = document.getElementById('qrcode');
+  qr.addEventListener('click', function(event) {
+    qrcode.classList.remove('qrcode-hide');
+    qrcode.classList.add('qrcode-show');
+  })
+  const cross = document.getElementById("cross");
+  cross.addEventListener("click", function(event) {
+    qrcode.classList.remove('qrcode-show');
+    qrcode.classList.add('qrcode-hide');
+  })
+</script>

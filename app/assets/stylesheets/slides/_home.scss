@@ -1108,7 +1108,10 @@ textarea.form-control {
   .icons {
     display: flex;
     list-style-type: none;
-    float: right;
+    margin-left: 50%;
+  }
+  li {
+    padding: 5px;
   }
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {

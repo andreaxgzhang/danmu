@@ -1,3 +1,48 @@
+<style type="text/css">
+  .rocket-station {
+  animation: MoveUpDown 2s ease-in-out infinite;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 0;
+  width: 100px;
+}
+  .rocket-shoot {
+    animation: ShootUp 3s linear 1;
+    position: absolute;
+    left: calc(50% - 50px);
+    bottom: 0;
+    width: 100px;
+  }
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 30px;
+  }
+}
+
+@keyframes ShootUp {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    bottom: 50px;
+    transform: scale(1.2)
+  }
+  20% {
+    bottom: 500px;
+    transform: scale(2)
+  }
+  100% {
+    bottom: 3000px;
+    transform: scale(5)
+  }
+}
+
+@keyframes
+</style>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <%= simple_form_for [ slide, comment ], remote: true do |f| %>
@@ -7,10 +52,9 @@
         <%= f.input :content, label: false, placeholder: "leave your comment", required: true, error: 'Please enter your comment', autofocus: true %>
         <%= f.input :color, label: false, placeholder: "choose a color", collection: ['- select color -', 'red', 'blue', 'green', 'yellow', 'pink', 'red', 'white', 'black'], selected: "- select color - ", class: "form-control" %>
       </div>
-      <div class="loginbtn">
-        <%= button_tag type: 'submit', id: 'submit-btn',class: 'submit-btn' do%>
-          <i class="fab fa-rocketchat"></i> Shoot Your Comment
-        <% end %>
+      <div class="create-rocket">
+        <%= image_submit_tag("rocket.png", id: 'submit-btn', class: 'rocket-station', alt: 'Submit')
+ %>
       </div>
   </div> <!-- login-container -->
 

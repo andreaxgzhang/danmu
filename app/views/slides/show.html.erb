@@ -25,7 +25,7 @@
   }
 
 .qrcode {
-  margin-left: 165px;
+  margin-top: 66px;
 }
 
 
@@ -87,6 +87,7 @@
                 <div class="cool-description">
                   <div class="cool-text">
                     <h1><%= @slide.name %></h1>
+
                     <div class="mini-text-container">
                       <p><%= @slide.description %></p>
                     </div>
@@ -170,7 +171,6 @@
         // commentContainer.insertAdjacentHTML('afterbegin', data.comment_partial);
         node.style.marginTop = num[temp]*20 + "px";
         node.style.position = "absolute";
-        console.log(111, data.color)
         node.style.color = data.color;
         commentContainer.appendChild(node);
       }
@@ -195,7 +195,7 @@
       let parentNode = document.querySelector('.comments')
       if( nodeList.length > 0 ){
         for (let i = 0; i < nodeList.length; i++){
-          distance = nodeList[i].offsetLeft + 3;
+          distance = nodeList[i].offsetLeft + 7;
           nodeList[i].style.marginLeft = distance + "px";
           if (distance > 950)
             parentNode.removeChild(nodeList[i]);
@@ -209,10 +209,3 @@
 
   </script>
 <% end %>
-
-
-
-
-
-
-
