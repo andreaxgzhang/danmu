@@ -6,7 +6,6 @@
 
 .cool-description {
     padding-left: 200px;
-    max-width: 79%;
 }
 .cool-text {
   font-size: 20px;
@@ -80,7 +79,9 @@
     left: calc(50% - 350px);
   }
   .backboard {
-    background-color: #E994A5;
+    background-color: white;
+    border: 2px solid black;
+    border-top: none;
     width: 700px;
     height: 650px;
     border-radius: 0 0 10px 10px;
@@ -132,7 +133,7 @@
               <div class="col-md-6 col-xs-12">
                 <div class="cool-description">
                   <div class="cool-text">
-                    <h1><%= @slide.name %></h1>
+                    <h1 style="font-size: 50px"><%= @slide.name %></h1>
 
                     <div class="mini-text-container">
                       <p><%= @slide.description %></p>
@@ -162,7 +163,7 @@
                 <p class="foot-text" style="margin-left: 30px;"> Next </p>
               <% end %>
               <%= link_to slides_path do %>
-                <p class="foot-text" style="margin: 0 600px 0 30px">&nbsp All &nbsp</p>
+                <p class="foot-text" style="margin: 0 500px 0 30px">&nbsp All &nbsp</p>
               <% end %>
               <p class="foot-text" style="margin-left: 430px;"> 01 </p>
               <p class="foot-text" style="margin-left: 30px;"> 02 </p>
