@@ -93,7 +93,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.action_cable.url = "wss://danmu-on-slide.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = [ "http://danmu-on-slide.herokuapp", "https://danmu-on-slide.herokuapp" ]
+  config.action_cable.allowed_request_origins = [ "http://danmu-on-slide.herokuapp.com", "https://danmu-on-slide.herokuapp.com" ]
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
