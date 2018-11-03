@@ -3,7 +3,6 @@
     font-size: 12px;
     line-height: 2;
   }
-
 .cool-description {
     padding-left: 200px;
 }
@@ -13,7 +12,6 @@
   font-weight: bold;
   line-height: 1.5;
 }
-
   .mini-text-container {
     border-left: 1px solid orange;
     padding: 14px;
@@ -22,12 +20,9 @@
     font-weight: lighter;
     min-width: 262px !important;
   }
-
 .qrcode {
   margin-top: 66px;
 }
-
-
 .big-container {
     padding: 101px;
     background-color: white;
@@ -44,7 +39,6 @@
   font-weight: bolder;
   border-bottom: 1px solid black;
 }
-
 @media (min-width: 1024px) {
   .fake-error {
     display: none;
@@ -147,10 +141,8 @@
               </div>
               <!-- <div class="col-md-1">
                 <a href="https://www.facebook.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px;  border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Facebook </p></a>
-
                 <a href="http://www.twiter.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Twitter </p></a>
                 <a href="http://www.instagram.com" style="color: black"><p class="foot-text" style="margin-left: 100px; margin-top: 100px; border-bottom: 0px; transform: rotate(90deg); transform-origin: left top 0;"> Instagram </p></a>
-
               </div> -->
             </div> <!-- row -->
 
@@ -213,14 +205,12 @@
     // let width = document.querySelector('.comments').offsetHeight
     let num = new Array();
     let temp = 0;
-
     for(var i = 0; i < height / 20 - 1; i++){
       num.splice(i,0,i);
     }
     App['slide_<%= @slide.id %>'] = App.cable.subscriptions.create(
       { channel: 'SlidesChannel', slide_id: <%= @slide.id %> },
       { received: (data) => {
-
         const commentContainer = document.querySelector('.comments');
         temp = Math.round(Math.random()*(num.length-1));
         let node = document.createElement("div");
@@ -233,14 +223,12 @@
         commentContainer.appendChild(node);
       }
     })
-
     window.onload = function(){
-
       timer=setInterval(move,100);
     }
     let iframe = document.querySelector('iframe');
     document.addEventListener("webkitfullscreenchange", (event) => {
-      document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight - 30) + "px";
+      document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight / 3) + "px";
       document.querySelector('.comments').style.width = document.querySelector('iframe').offsetWidth + "px";
       let height = document.querySelector('.comments').offsetHeight;
       let width = document.querySelector('.comments').offsetWidth;
@@ -253,17 +241,15 @@
       let parentNode = document.querySelector('.comments')
       if( nodeList.length > 0 ){
         for (let i = 0; i < nodeList.length; i++){
-          distance = nodeList[i].offsetLeft + 7;
+          distance = nodeList[i].offsetLeft + 6;
           nodeList[i].style.marginLeft = distance + "px";
           if (distance > 950)
             parentNode.removeChild(nodeList[i]);
         }
       }
-
     }
-    function random(m,n){//随机在m、n之间的整数
+    function random(m,n){
       return Math.round(Math.random()*(n - m)) + m;
     }
-
   </script>
 <% end %>
