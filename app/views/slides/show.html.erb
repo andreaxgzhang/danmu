@@ -198,14 +198,14 @@
     })
     document.querySelector('iframe').height = 440
     document.querySelector('iframe').width = 730
-    document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight - 30) + "px"
+    document.querySelector('.comments').style.height = (document.querySelector('iframe').offsetHeight / 3) + "px"
     document.querySelector('.comments').style.width = document.querySelector('iframe').offsetWidth + "px"
     let height = document.querySelector('.comments').offsetHeight
     let width = document.querySelector('.comments').offsetWidth
     // let width = document.querySelector('.comments').offsetHeight
     let num = new Array();
     let temp = 0;
-    for(var i = 0; i < height / 20 - 1; i++){
+    for(var i = 0; i < height / 10 - 1; i++){
       num.splice(i,0,i);
     }
     App['slide_<%= @slide.id %>'] = App.cable.subscriptions.create(
@@ -217,9 +217,10 @@
         node.className = "comment-relative";
         node.innerHTML = data.comment;
         // commentContainer.insertAdjacentHTML('afterbegin', data.comment_partial);
-        node.style.marginTop = num[temp]*20 + "px";
+        node.style.marginTop = num[temp] * 10 + "px";
         node.style.position = "absolute";
         node.style.color = data.color;
+        node.style.fontSize = 'large';
         commentContainer.appendChild(node);
       }
     })
@@ -232,15 +233,18 @@
       document.querySelector('.comments').style.width = document.querySelector('iframe').offsetWidth + "px";
       let height = document.querySelector('.comments').offsetHeight;
       let width = document.querySelector('.comments').offsetWidth;
-      for(var i = 0; i < height / 20 - 1; i++){
+      num = new Array();
+      for(var i = 0; i < height / 10 - 1; i++){
         num.splice(i,0,i);
       }
+      temp = Math.round(Math.random()*(num.length-1));
     });
     function move(){
       let nodeList = document.querySelectorAll('.comment-relative');
       let parentNode = document.querySelector('.comments')
       if( nodeList.length > 0 ){
         for (let i = 0; i < nodeList.length; i++){
+          nodeList[i].marginTop = num[temp] * 10 + "px";
           distance = nodeList[i].offsetLeft + 6;
           nodeList[i].style.marginLeft = distance + "px";
           if (distance > 950)
